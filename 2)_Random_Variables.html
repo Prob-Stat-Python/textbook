@@ -1,0 +1,771 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2) Random Variables &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3) Association between Random Variables" href="3)_Association_between_Random_Variables.html" />
+    <link rel="prev" title="1) Foundations of Probability" href="1)_Foundations_of_Probability.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1)_Foundations_of_Probability.html">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3)_Association_between_Random_Variables.html">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6)_Confidence_Intervals.html">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9)_Simple_Regression.html">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10)_Multiple_Regression.html">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2)_Random_Variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-random-variable">
+   2.1) What is a random variable?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-calculate-the-expected-value-of-a-random-variable-x-denoted-by-e-x">
+   2.2) How to calculate the expected value of a random variable X, denoted by E(X)?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-calculate-the-variance-of-x-denoted-by-var-x">
+   2.3) How to calculate the variance of X, denoted by Var(X)?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-calculate-the-standard-deviation-of-x-denoted-by-sd-x-or-sigma">
+   2.4) How to calculate the standard deviation of X, denoted by SD(X) or
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-e-cx-ce-x-where-c-is-a-constant">
+   2.5) Prove that
+   <span class="math notranslate nohighlight">
+    \(E(cX) = cE(X)\)
+   </span>
+   , where c is a constant.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-var-cx-c-2var-x-where-c-is-a-constant">
+   2.6) Prove that
+   <span class="math notranslate nohighlight">
+    \(Var(cX)=c^2Var(X)\)
+   </span>
+   , where c is a constant.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-e-x-c-e-x-c-where-c-is-a-constant">
+   2.7) Prove that
+   <span class="math notranslate nohighlight">
+    \(E(X+c)=E(X)+c\)
+   </span>
+   , where c is a constant.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-e-c-c-where-c-is-constant">
+   2.8) Prove that
+   <span class="math notranslate nohighlight">
+    \(E(c)=c\)
+   </span>
+   , where c is constant.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-var-c-0-where-c-is-a-constant">
+   2.9) Prove that
+   <span class="math notranslate nohighlight">
+    \(Var(c) = 0\)
+   </span>
+   , where c is a constant.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="random-variables">
+<h1>2) Random Variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 7-18-2020</p>
+<div class="section" id="what-is-a-random-variable">
+<h2>2.1) What is a random variable?<a class="headerlink" href="#what-is-a-random-variable" title="Permalink to this headline">¶</a></h2>
+<p>It is a statistical model that describes uncertain outcome of a random process.</p>
+<p>Let’s model stock price as a random variable X:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Increases&#39;</span><span class="p">,</span> <span class="s1">&#39;Stays same&#39;</span><span class="p">,</span><span class="s1">&#39;Decreases&#39;</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Stock Price&#39;</span><span class="p">:</span><span class="n">stock</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;P(X=x)&#39;</span><span class="p">:</span><span class="n">prob</span> <span class="p">}</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Stock Price</th>
+      <th>x</th>
+      <th>P(X=x)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Increases</td>
+      <td>10</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stays same</td>
+      <td>0</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Decreases</td>
+      <td>-9</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The capital “X” stands for the random variable; whereas the lower case “x” indicates the possible outcomes (10, 0, -9). The statement <span class="math notranslate nohighlight">\(P(X=x_i)\)</span> means the probability of the outcome <span class="math notranslate nohighlight">\(x_i\)</span>. For example, <span class="math notranslate nohighlight">\(P(X=x_0) = P(X=10) = 0.3\)</span>.</p>
+</div>
+<div class="section" id="how-to-calculate-the-expected-value-of-a-random-variable-x-denoted-by-e-x">
+<h2>2.2) How to calculate the expected value of a random variable X, denoted by E(X)?<a class="headerlink" href="#how-to-calculate-the-expected-value-of-a-random-variable-x-denoted-by-e-x" title="Permalink to this headline">¶</a></h2>
+<p>Expected value is a weighted average that uses probabilities to weight the possible outcomes.</p>
+<p>Let’s calculate the mean (<span class="math notranslate nohighlight">\(\mu\)</span>) or expected value of the previous example random variable (X):</p>
+<div class="math notranslate nohighlight">
+\[ \mu = E(X) = \sum_{i=0}^{n} x_iP(X=x_i) \]</div>
+<div class="math notranslate nohighlight">
+\[ x_0P(X=x_0)+...+x_nP(X=x_n)\]</div>
+<div class="math notranslate nohighlight">
+\[ 10*0.3+0*0.5-9*0.2\]</div>
+<div class="math notranslate nohighlight">
+\[ 3+0-1.8 = 1.2\]</div>
+<p>Therefore, the average return of this stock X is $1.2.</p>
+<p>Let’s show the calculations step by step:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;x*P(X=x)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;P(X=x)&#39;</span><span class="p">]</span>
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Stock Price</th>
+      <th>x</th>
+      <th>P(X=x)</th>
+      <th>x*P(X=x)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Increases</td>
+      <td>10</td>
+      <td>0.3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stays same</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Decreases</td>
+      <td>-9</td>
+      <td>0.2</td>
+      <td>-1.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sum up the rows of ‘x*P(X=x)’:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;x*P(X=x)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-calculate-the-variance-of-x-denoted-by-var-x">
+<h2>2.3) How to calculate the variance of X, denoted by Var(X)?<a class="headerlink" href="#how-to-calculate-the-variance-of-x-denoted-by-var-x" title="Permalink to this headline">¶</a></h2>
+<p>The variance of a random variable X is the expected value of the squared deviation from its mean <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma^2=E[(X-\mu)^2] = Var(X)\]</div>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=0}^{n} (x_i - \mu)^2 P(X=x_i) \]</div>
+<div class="math notranslate nohighlight">
+\[  (x_0 - \mu)^2 P(X=x_0)+...+(x_n - \mu)^2 P(X=x_n)   \]</div>
+<div class="math notranslate nohighlight">
+\[ 77.44*0.3+1.44*0.5+104.04*0.2 \]</div>
+<div class="math notranslate nohighlight">
+\[ 23.232 + 0.720 + 20.808 \]</div>
+<div class="math notranslate nohighlight">
+\[ 44.76\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;x-mu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;x*P(X=x)&#39;</span><span class="p">])</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;(x-mu)^2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;x-mu&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;x-mu&#39;</span><span class="p">]</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;[(x-mu)^2]*P(X=x)&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">X</span><span class="p">[</span><span class="s1">&#39;(x-mu)^2&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;P(X=x)&#39;</span><span class="p">]</span>
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Stock Price</th>
+      <th>x</th>
+      <th>P(X=x)</th>
+      <th>x*P(X=x)</th>
+      <th>x-mu</th>
+      <th>(x-mu)^2</th>
+      <th>[(x-mu)^2]*P(X=x)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Increases</td>
+      <td>10</td>
+      <td>0.3</td>
+      <td>3.0</td>
+      <td>8.8</td>
+      <td>77.44</td>
+      <td>23.232</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stays same</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>-1.2</td>
+      <td>1.44</td>
+      <td>0.720</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Decreases</td>
+      <td>-9</td>
+      <td>0.2</td>
+      <td>-1.8</td>
+      <td>-10.2</td>
+      <td>104.04</td>
+      <td>20.808</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">varX</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;[(x-mu)^2]*P(X=x)&#39;</span><span class="p">])</span>
+<span class="n">varX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>44.760000000000005
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variance is a measure of variability around the mean. It is hard to interpret 44.76, because the measurement unit is the square of the measurement unit ($) of the random variable.</p>
+</div>
+<div class="section" id="how-to-calculate-the-standard-deviation-of-x-denoted-by-sd-x-or-sigma">
+<h2>2.4) How to calculate the standard deviation of X, denoted by SD(X) or <span class="math notranslate nohighlight">\(\sigma\)</span>?<a class="headerlink" href="#how-to-calculate-the-standard-deviation-of-x-denoted-by-sd-x-or-sigma" title="Permalink to this headline">¶</a></h2>
+<p>Standard Deviation is the square root of the variance.</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{\sigma^2}=\sqrt{Var(X)}\]</div>
+<div class="math notranslate nohighlight">
+\[ \sqrt{44.76)} \]</div>
+<p>$$ $6.7 $$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sdX</span> <span class="o">=</span> <span class="n">varX</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sdX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6.690291473471093
+</pre></div>
+</div>
+</div>
+</div>
+<p>The standard deviation, <span class="math notranslate nohighlight">\(\sigma = 6.7\)</span>, has the same unit ($) of the random variable. Therefore, it is easy to interpret.</p>
+<p>One <span class="math notranslate nohighlight">\(\sigma\)</span> above the mean (<span class="math notranslate nohighlight">\(\mu\)</span>) or below the mean (<span class="math notranslate nohighlight">\(\mu\)</span>) is a very likely outcome.</p>
+<p>The standard deviation is a measure of variability around the mean. Bigger the number, bigger the variation.</p>
+<p>In Finance, it is a proxy for risk. You want to minimize risk (<span class="math notranslate nohighlight">\(\sigma\)</span>) and maximize return (<span class="math notranslate nohighlight">\(\mu\)</span>).</p>
+</div>
+<div class="section" id="prove-that-e-cx-ce-x-where-c-is-a-constant">
+<h2>2.5) Prove that <span class="math notranslate nohighlight">\(E(cX) = cE(X)\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-e-cx-ce-x-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ E(X) = x_0p_0+x_1p_1+...+x_np_n\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ E(cX) = cx_0p_0+cx_1p_1+...+cx_np_n\]</div>
+<div class="math notranslate nohighlight">
+\[  c(x_0p_0+x_1p_1+...+x_np_n)\]</div>
+<div class="math notranslate nohighlight">
+\[ cE(X)\]</div>
+</div>
+<div class="section" id="prove-that-var-cx-c-2var-x-where-c-is-a-constant">
+<h2>2.6) Prove that <span class="math notranslate nohighlight">\(Var(cX)=c^2Var(X)\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-var-cx-c-2var-x-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ Var(X)=E[(X-\mu_x)^2] \]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ Var(cX)=E[(cX-c\mu_x)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ E[c^2(X-\mu_x)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ c^2E[(X-\mu_x)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ c^2Var(X) \]</div>
+</div>
+<div class="section" id="prove-that-e-x-c-e-x-c-where-c-is-a-constant">
+<h2>2.7) Prove that <span class="math notranslate nohighlight">\(E(X+c)=E(X)+c\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-e-x-c-e-x-c-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ E(X+c) = (x_0+c)p_0+(x_1+c)p_1+...+(x_n+c)p_n\]</div>
+<div class="math notranslate nohighlight">
+\[  x_0p_0+cp_0+x_1p_1+cp_1...+x_np_n+cp_n\]</div>
+<div class="math notranslate nohighlight">
+\[  (x_0p_0+x_1p_1+...+x_np_n) + c(p_0+p_1+...+p_n)\]</div>
+<p>As probability must sum up to 1:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=0}^{n}p_i=1 \]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ E(X) + c\]</div>
+</div>
+<div class="section" id="prove-that-e-c-c-where-c-is-constant">
+<h2>2.8) Prove that <span class="math notranslate nohighlight">\(E(c)=c\)</span>, where c is constant.<a class="headerlink" href="#prove-that-e-c-c-where-c-is-constant" title="Permalink to this headline">¶</a></h2>
+<p>By definition:
+<span class="math notranslate nohighlight">\($ E(X) = x_0p_0+x_1p_1+...+x_np_n\)</span>$</p>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ E(c) = cp_0+cp_1+...+cp_n\]</div>
+<div class="math notranslate nohighlight">
+\[ c(p_0+p_1+...+p_n)\]</div>
+<div class="math notranslate nohighlight">
+\[c\]</div>
+</div>
+<div class="section" id="prove-that-var-c-0-where-c-is-a-constant">
+<h2>2.9) Prove that <span class="math notranslate nohighlight">\(Var(c) = 0\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-var-c-0-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ Var(X)=E[(X-\mu_x)^2] \]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ Var(c)=E[(c-\mu_c)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ E[(c-c)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ E[(0)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[0\]</div>
+<p><strong>Intuition:</strong> By definition a constant has no variation.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| Calculate the E(Y).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Increases&#39;</span><span class="p">,</span> <span class="s1">&#39;Stays same&#39;</span><span class="p">,</span><span class="s1">&#39;Decreases&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Stock Price&#39;</span><span class="p">:</span><span class="n">stock</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;P(Y=y)&#39;</span><span class="p">:</span><span class="n">prob</span> <span class="p">}</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Stock Price</th>
+      <th>y</th>
+      <th>P(Y=y)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Increases</td>
+      <td>5</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stays same</td>
+      <td>0</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Decreases</td>
+      <td>-3</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>2| Calculate Var(Y).</p>
+<p>3| Calculate the SD(Y).</p>
+<p>4| Prove that <span class="math notranslate nohighlight">\(Var(X+c)=Var(X)\)</span>, where c is a constant.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="1)_Foundations_of_Probability.html" title="previous page">1) Foundations of Probability</a>
+    <a class='right-next' id="next-link" href="3)_Association_between_Random_Variables.html" title="next page">3) Association between Random Variables</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

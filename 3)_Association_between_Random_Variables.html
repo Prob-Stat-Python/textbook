@@ -1,0 +1,848 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3) Association between Random Variables &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4) The Normal Probability Model" href="4)_The_Normal_Probability_Model.html" />
+    <link rel="prev" title="2) Random Variables" href="2)_Random_Variables.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1)_Foundations_of_Probability.html">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2)_Random_Variables.html">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6)_Confidence_Intervals.html">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9)_Simple_Regression.html">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10)_Multiple_Regression.html">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/3)_Association_between_Random_Variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-6000-is-invested-in-amazon-and-2000-in-intel-what-is-the-expected-return">
+   3.1) If $6000 is invested in Amazon, and $2000 in Intel, what is the expected return?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-variance-of-the-portfolio-z">
+   3.2) What is the variance of the portfolio Z?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-standard-deviation-of-the-portfolio-z">
+   3.3) What is the standard deviation of the portfolio Z?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-covariance-between-random-variables">
+   3.4) What is the covariance between Random Variables?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-cov-x-x">
+   3.5) What is
+   <span class="math notranslate nohighlight">
+    \(Cov(X,X)\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-that-cov-x-y-e-xy-mu-x-mu-y">
+   3.6) Show that
+   <span class="math notranslate nohighlight">
+    \(Cov(X,Y)=E(XY)-\mu_x\mu_y\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prove-that-if-x-and-y-are-independent-then-cov-x-y-0">
+   3.7) Prove that if
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(Y\)
+   </span>
+   are independent, then
+   <span class="math notranslate nohighlight">
+    \(Cov(X,Y)=0\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-that-var-x-y-var-x-var-y-2cov-x-y">
+   3.8) Show that
+   <span class="math notranslate nohighlight">
+    \(Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-correlation-rho">
+   3.9) What is correlation,
+   <span class="math notranslate nohighlight">
+    \(\rho\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-x-and-y-are-uncorrelated-rho-0-it-is-possible-to-conclude-that-x-and-y-are-independent">
+   3.10) If
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(Y\)
+   </span>
+   are uncorrelated (
+   <span class="math notranslate nohighlight">
+    \(\rho =0\)
+   </span>
+   ), it is possible to conclude that
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(Y\)
+   </span>
+   are independent?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="association-between-random-variables">
+<h1>3) Association between Random Variables<a class="headerlink" href="#association-between-random-variables" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 7-18-2020</p>
+<div class="section" id="if-6000-is-invested-in-amazon-and-2000-in-intel-what-is-the-expected-return">
+<h2>3.1) If $6000 is invested in Amazon, and $2000 in Intel, what is the expected return?<a class="headerlink" href="#if-6000-is-invested-in-amazon-and-2000-in-intel-what-is-the-expected-return" title="Permalink to this headline">¶</a></h2>
+<p>Suppose Amazon and Intel stocks have recently been rising 2.1% and 0.4% per month, respectively.</p>
+<p>Let’s <span class="math notranslate nohighlight">\(Z\)</span> be the portfolio composed by stocks X and Y:</p>
+<div class="math notranslate nohighlight">
+\[Z=aX+bY\]</div>
+<div class="math notranslate nohighlight">
+\[E(Z)=aE(X)+bE(Y)\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[E(6000X+2000Y)\]</div>
+<div class="math notranslate nohighlight">
+\[=6000(0.021)+2000(0.004)\]</div>
+<p>$$ =$134 $$</p>
+</div>
+<div class="section" id="what-is-the-variance-of-the-portfolio-z">
+<h2>3.2) What is the variance of the portfolio Z?<a class="headerlink" href="#what-is-the-variance-of-the-portfolio-z" title="Permalink to this headline">¶</a></h2>
+<p>Based on previous question:</p>
+<div class="math notranslate nohighlight">
+\[Z=aX+bY\]</div>
+<div class="math notranslate nohighlight">
+\[Var(Z)=Var(aX+bY)\]</div>
+<p>If X and Y are independent:</p>
+<div class="math notranslate nohighlight">
+\[Var(aX+bY)=a^2Var(X)+b^2Var(Y)\]</div>
+<p>Suppose that the variance of Amazon and Intel stocks are respectively 0.72% and 0.27% per month.</p>
+<div class="math notranslate nohighlight">
+\[Var(6000X+2000Y)\]</div>
+<div class="math notranslate nohighlight">
+\[=6000^2(0.0072)+2000^2(0.0027)\]</div>
+<div class="math notranslate nohighlight">
+\[=270,000\]</div>
+<p>This value is hard to interpret, because the measurement unit is a square term.</p>
+</div>
+<div class="section" id="what-is-the-standard-deviation-of-the-portfolio-z">
+<h2>3.3) What is the standard deviation of the portfolio Z?<a class="headerlink" href="#what-is-the-standard-deviation-of-the-portfolio-z" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[SD(Z) = \sqrt{Var(Z)}\]</div>
+<p>$$=\sqrt{$^2270,000}$$</p>
+<p>$$ = $520 $$</p>
+<p>An outcome in the range of $520 above or below the expected return is very likely to occur.</p>
+</div>
+<div class="section" id="what-is-the-covariance-between-random-variables">
+<h2>3.4) What is the covariance between Random Variables?<a class="headerlink" href="#what-is-the-covariance-between-random-variables" title="Permalink to this headline">¶</a></h2>
+<p>The covariance between random variables is the expected value of the product of deviations from the means.</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_{xy}= Cov(X,Y)=E[(X-\mu_x)(Y-\mu_y)]\]</div>
+<p>It is hard to interpret, because the units of random variables X and Y are multiplied.</p>
+</div>
+<div class="section" id="what-is-cov-x-x">
+<h2>3.5) What is <span class="math notranslate nohighlight">\(Cov(X,X)\)</span>?<a class="headerlink" href="#what-is-cov-x-x" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ Cov(X,Y)=E[(X-\mu_x)(Y-\mu_y)]\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ Cov(X,X)=E[(X-\mu_x)(X-\mu_x)]\]</div>
+<div class="math notranslate nohighlight">
+\[ =E[(X-\mu_x)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ =Var(X) \]</div>
+<p>Therefore, variance is a special case of covariance.</p>
+</div>
+<div class="section" id="show-that-cov-x-y-e-xy-mu-x-mu-y">
+<h2>3.6) Show that <span class="math notranslate nohighlight">\(Cov(X,Y)=E(XY)-\mu_x\mu_y\)</span>.<a class="headerlink" href="#show-that-cov-x-y-e-xy-mu-x-mu-y" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ Cov(X,Y)=E[(X-\mu_x)(Y-\mu_y)]\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[=E(XY-X\mu_y-\mu_xY +\mu_x\mu_y)\]</div>
+<div class="math notranslate nohighlight">
+\[=E(XY)-\mu_yE(X)-\mu_xE(Y) +\mu_x\mu_y\]</div>
+<div class="math notranslate nohighlight">
+\[=E(XY)-\mu_x\mu_y-\mu_x\mu_y +\mu_x\mu_y\]</div>
+<div class="math notranslate nohighlight">
+\[=E(XY)-\mu_x\mu_y\]</div>
+</div>
+<div class="section" id="prove-that-if-x-and-y-are-independent-then-cov-x-y-0">
+<h2>3.7) Prove that if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(Cov(X,Y)=0\)</span>.<a class="headerlink" href="#prove-that-if-x-and-y-are-independent-then-cov-x-y-0" title="Permalink to this headline">¶</a></h2>
+<p>Remember the definition of two independent events A and B:</p>
+<div class="math notranslate nohighlight">
+\[ P(A\cap B) = P(A) \cdot P(B) \]</div>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent random variables, then:</p>
+<div class="math notranslate nohighlight">
+\[E(XY)= E(X) \cdot E(Y)\]</div>
+<p>From previous question:</p>
+<div class="math notranslate nohighlight">
+\[Cov(X,Y)=E(XY)-\mu_x\mu_y\]</div>
+<div class="math notranslate nohighlight">
+\[ = E(X) \cdot E(Y)-\mu_x\mu_y\]</div>
+<div class="math notranslate nohighlight">
+\[ =\mu_x\mu_y-\mu_x\mu_y\]</div>
+<div class="math notranslate nohighlight">
+\[ 0\]</div>
+<p><strong>Intuition</strong>: If X and Y are independent random variables, knowledge or information of random variable X doesn’t help in predicting the outcome of random variable Y, and vice-versa. Therefore, there is no linear association between these two variables: <span class="math notranslate nohighlight">\(Cov(X,Y)=0\)</span>.</p>
+</div>
+<div class="section" id="show-that-var-x-y-var-x-var-y-2cov-x-y">
+<h2>3.8) Show that <span class="math notranslate nohighlight">\(Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)\)</span>.<a class="headerlink" href="#show-that-var-x-y-var-x-var-y-2cov-x-y" title="Permalink to this headline">¶</a></h2>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[ Var(X)=E[(X-\mu_x)^2] \]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[ Var(X+Y)=E[(X+Y-\mu_x-\mu_y)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ =E[(X-\mu_x+Y-\mu_y)^2] \]</div>
+<div class="math notranslate nohighlight">
+\[ =E[(X-\mu_x)^2+(Y-\mu_y)^2 +2(X-\mu_x)(Y-\mu_y)] \]</div>
+<div class="math notranslate nohighlight">
+\[ =E[(X-\mu_x)^2]+E[(Y-\mu_y)^2] +2E[(X-\mu_x)(Y-\mu_y)] \]</div>
+<div class="math notranslate nohighlight">
+\[=Var(X)+Var(Y)+2Cov(X,Y)\]</div>
+</div>
+<div class="section" id="what-is-correlation-rho">
+<h2>3.9) What is correlation, <span class="math notranslate nohighlight">\(\rho\)</span>?<a class="headerlink" href="#what-is-correlation-rho" title="Permalink to this headline">¶</a></h2>
+<p>The correlation is the covariance divided by the product of standard deviations:</p>
+<div class="math notranslate nohighlight">
+\[ \rho = \frac{Cov(X,Y)}{\sqrt{Var(X)\cdot Var(Y)}} =\frac{\sigma_{xy}}{\sigma_x \sigma_y} \]</div>
+<p>The correlation is easy to interpret. It ranges from -1 to +1.</p>
+<div class="math notranslate nohighlight">
+\[ -1 \leq \rho \leq 1 \]</div>
+<p>It is unit free. The units from covariance are removed by the division of the product of standard deviations.</p>
+</div>
+<div class="section" id="if-x-and-y-are-uncorrelated-rho-0-it-is-possible-to-conclude-that-x-and-y-are-independent">
+<h2>3.10) If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated (<span class="math notranslate nohighlight">\(\rho =0\)</span>), it is possible to conclude that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent?<a class="headerlink" href="#if-x-and-y-are-uncorrelated-rho-0-it-is-possible-to-conclude-that-x-and-y-are-independent" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that the joint probability distribution,  <span class="math notranslate nohighlight">\(P(X,Y)\)</span>, is given by the table below.</p>
+<p><img alt="alt text" src="https://github.com/causal-methods/Data/raw/master/figures/JointProb.PNG" /></p>
+<p>The random variables X and Y are independent if:</p>
+<div class="math notranslate nohighlight">
+\[P(X,Y)=P(X)\cdot P(Y)\]</div>
+<p><span class="math notranslate nohighlight">\(P(X=10, Y=0)=1/2\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(X=10) = 0+\frac{1}{2} +0\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Y=0) = \frac{1}{2} + 0\)</span></p>
+<p>Therefore, X and Y are dependent:</p>
+<div class="math notranslate nohighlight">
+\[P(X=10,Y=0)\neq P(X=10)\cdot P(Y=0)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2} \neq \frac{1}{4} \]</div>
+<p>Let’s convert the table in a format useful for calculations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">probXY</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span><span class="n">probXY</span> <span class="p">}</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+<span class="n">table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>-10</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10</td>
+      <td>0</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>10</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-10</td>
+      <td>-10</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-10</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-10</td>
+      <td>10</td>
+      <td>0.25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We calculated that <span class="math notranslate nohighlight">\(\mu_x=0\)</span>, and <span class="math notranslate nohighlight">\(\mu_y=0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span>
+<span class="n">table</span><span class="p">[</span><span class="s1">&#39;y*P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span>
+<span class="n">table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>P</th>
+      <th>x*P</th>
+      <th>y*P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>-10</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10</td>
+      <td>0</td>
+      <td>0.50</td>
+      <td>5.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>10</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-10</td>
+      <td>-10</td>
+      <td>0.25</td>
+      <td>-2.5</td>
+      <td>-2.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-10</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-10</td>
+      <td>10</td>
+      <td>0.25</td>
+      <td>-2.5</td>
+      <td>2.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*P&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;y*P&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get that <span class="math notranslate nohighlight">\(E(XY) =0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+<span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*y*P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*y&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span>
+<span class="n">table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>P</th>
+      <th>x*P</th>
+      <th>y*P</th>
+      <th>x*y</th>
+      <th>x*y*P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>-10</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>-100</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10</td>
+      <td>0</td>
+      <td>0.50</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>10</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>100</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-10</td>
+      <td>-10</td>
+      <td>0.25</td>
+      <td>-2.5</td>
+      <td>-2.5</td>
+      <td>100</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-10</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-10</td>
+      <td>10</td>
+      <td>0.25</td>
+      <td>-2.5</td>
+      <td>2.5</td>
+      <td>-100</td>
+      <td>-25.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;x*y*P&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore: <span class="math notranslate nohighlight">\(Cov(X,Y)=E(XY)-\mu_x\mu_y = 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \rho = \frac{Cov(X,Y)}{\sqrt{Var(X)\cdot Var(Y)}} =0\]</div>
+<p>We cannot conclude that if correlation is zero, the two random variables are independent.</p>
+<p><strong>Intuition</strong>: Dependency is a stronger concept than correlation. Dependency capture any relationship between variables, ex: quadratic relationship; whereas, correlation only capture linear relationship.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| If you want a portfolio with small risk (variance), should you look for investments that have positive covariance, have negative covariance, or are uncorrelated? Justify.</p>
+<p>2| When <span class="math notranslate nohighlight">\(Var(X+Y)=Var(X)+Var(Y)\)</span>? Explain.</p>
+<p>3| Does a portfolio formed from the mix of three investments have more risk (variance) than a portfolio formed from two? Make assumptions and justify you reasoning.</p>
+<p>4| What is the covariance between a random variable and itself?</p>
+<p>5|  What is the correlation between a random variable and itself?</p>
+<p>6| What’s the covariance between a random variable X and a constant?</p>
+<p>7| Suppose a random  variable <span class="math notranslate nohighlight">\(X\)</span> can take only the three values -1, 0,
+and 1, and that each of these three values has the
+same probability. Let <span class="math notranslate nohighlight">\(Y = X^2\)</span>.</p>
+<p>a) Show that <span class="math notranslate nohighlight">\(Correlation(X,Y) = 0\)</span>.</p>
+<p>b) Are X and Y independent? Justify.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="2)_Random_Variables.html" title="previous page">2) Random Variables</a>
+    <a class='right-next' id="next-link" href="4)_The_Normal_Probability_Model.html" title="next page">4) The Normal Probability Model</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

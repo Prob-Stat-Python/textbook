@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>9) Simple Regression &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10) Multiple Regression" href="10)_Multiple_Regression.html" />
+    <link rel="prev" title="8) Experiment" href="8)_Experiment.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1)_Foundations_of_Probability.html">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2)_Random_Variables.html">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3)_Association_between_Random_Variables.html">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6)_Confidence_Intervals.html">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10)_Multiple_Regression.html">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/9)_Simple_Regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-simple-regression-model">
+   9.1) What is a simple regression model?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-conditional-mean-e-y-x-x">
+   9.2) What is the conditional mean,
+   <span class="math notranslate nohighlight">
+    \(E(Y|X=x)\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-properties-of-the-error-term-epsilon">
+   9.3) What are the properties of the error term,
+   <span class="math notranslate nohighlight">
+    \(\epsilon\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-the-simple-regression-can-be-used-to-establish-causality">
+   9.4) When the simple regression can be used to establish causality?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-it-necessary-to-run-a-regression-to-establish-causality">
+   9.5) Is it necessary to run a regression to establish causality?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-the-slope-beta-1-equal-to-the-correlation-between-x-and-y">
+   9.6) Is the slope
+   <span class="math notranslate nohighlight">
+    \(\beta_1\)
+   </span>
+   equal to the correlation between
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   and
+   <span class="math notranslate nohighlight">
+    \(Y\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-formula-for-the-intercept-beta-0">
+   9.7) What is the formula for the intercept,
+   <span class="math notranslate nohighlight">
+    \(\beta_0\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-r-squared-r-2-in-a-simple-regression">
+   9.8) What is the R-squared,
+   <span class="math notranslate nohighlight">
+    \(R^2\)
+   </span>
+   in a simple regression?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#should-i-care-about-r-2-to-establish-causality">
+   9.9) Should I care about
+   <span class="math notranslate nohighlight">
+    \(R^2\)
+   </span>
+   to establish causality?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simple-regression">
+<h1>9) Simple Regression<a class="headerlink" href="#simple-regression" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 8-2-2020</p>
+<div class="section" id="what-is-a-simple-regression-model">
+<h2>9.1) What is a simple regression model?<a class="headerlink" href="#what-is-a-simple-regression-model" title="Permalink to this headline">¶</a></h2>
+<p>Simple regression is a model that measures how an explanatory variable <span class="math notranslate nohighlight">\(X\)</span> is associated with a response variable <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[  Y = \beta_0 + \beta_1X + \epsilon\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, <span class="math notranslate nohighlight">\(\beta_1\)</span> the slope, and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the error term.</p>
+</div>
+<div class="section" id="what-is-the-conditional-mean-e-y-x-x">
+<h2>9.2) What is the conditional mean, <span class="math notranslate nohighlight">\(E(Y|X=x)\)</span>?<a class="headerlink" href="#what-is-the-conditional-mean-e-y-x-x" title="Permalink to this headline">¶</a></h2>
+<p>Conditional mean is the average of one variable (<span class="math notranslate nohighlight">\(Y\)</span>) given that another variable (<span class="math notranslate nohighlight">\(X\)</span>) takes on a specific value (<span class="math notranslate nohighlight">\(x\)</span>).</p>
+<p>Let’s calculate the conditional mean of the simple regression:</p>
+<div class="math notranslate nohighlight">
+\[  Y = \beta_0 + \beta_1X + \epsilon \]</div>
+<p>Take the conditional expectation:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y|X=x) = E[(\beta_0 + \beta_1X + \epsilon)|X=x] \]</div>
+<div class="math notranslate nohighlight">
+\[ = E(\beta_0|X=x) +  E(\beta_1X|X=x) + E(\epsilon|X=x)  \]</div>
+<div class="math notranslate nohighlight">
+\[ = \beta_0  + \beta_1X + 0\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y|X=x) = \mu_{y|x} = \beta_0  + \beta_1X\]</div>
+<p>The main assumption of simple regression is that:</p>
+<div class="math notranslate nohighlight">
+\[ E(\epsilon|X=x) =0  \]</div>
+<p>The expression above holds if the error term (<span class="math notranslate nohighlight">\(\epsilon\)</span>) is independent of the explanatory variable (<span class="math notranslate nohighlight">\(X\)</span>).</p>
+</div>
+<div class="section" id="what-are-the-properties-of-the-error-term-epsilon">
+<h2>9.3) What are the properties of the error term, <span class="math notranslate nohighlight">\(\epsilon\)</span>?<a class="headerlink" href="#what-are-the-properties-of-the-error-term-epsilon" title="Permalink to this headline">¶</a></h2>
+<p>The error term (<span class="math notranslate nohighlight">\(\epsilon\)</span>) is the deviation from the conditional mean.</p>
+<p>We cannot observe the error term (<span class="math notranslate nohighlight">\(\epsilon\)</span>), but we know that:</p>
+<div class="math notranslate nohighlight">
+\[ \epsilon = Y - E(Y|X=x) \]</div>
+<p>We assume that the errors:</p>
+<ol class="simple">
+<li><p>are independent of one another:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[   \epsilon_i \perp \epsilon_j, \  \forall \ i \ne j  \]</div>
+<ol class="simple">
+<li><p>have equal variance:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Var(\epsilon) = \sigma^2_\epsilon\]</div>
+<p>Therefore, the errors follow normal distribution with mean 0 and variance <span class="math notranslate nohighlight">\(\sigma^2_\epsilon\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \epsilon \sim N(0, \sigma^2_\epsilon) \]</div>
+<p>These assumptions are necessary for classical inference (statistical test and confidence interval).</p>
+</div>
+<div class="section" id="when-the-simple-regression-can-be-used-to-establish-causality">
+<h2>9.4) When the simple regression can be used to establish causality?<a class="headerlink" href="#when-the-simple-regression-can-be-used-to-establish-causality" title="Permalink to this headline">¶</a></h2>
+<p>Simple regression can be used to establish causality, when the treatment variable (<span class="math notranslate nohighlight">\(T\)</span>) is randomized.</p>
+<div class="math notranslate nohighlight">
+\[ Y = \beta_0 + \beta_1T + \epsilon \]</div>
+<p>Let’s see if ‘race’ affects the probability of receive a ‘call’ to an interview, using experimental data from Bertrand &amp; Mullainathan (2004). In this study, ‘race’ was randomized. They randomly assigned a Black sounding name (ex: Lakish or Jamal) to half of the CVs and a White sounding name (ex: Emily or Greg) to the other half.</p>
+<div class="math notranslate nohighlight">
+\[ call = \beta_0 + \beta_1race + \epsilon \]</div>
+<p>The result from simple regression is:</p>
+<div class="math notranslate nohighlight">
+\[ \widehat{call} = 0.0965-0.032\widehat{race} \]</div>
+<p>The value of intercept is 9.6%. This is the proportion of White applicants that received a callback for interview.</p>
+<p>The coefficient of ‘race’ is 3.2%. The interpretation is that being a Black applicant “causes” to receive 3.2% less callbacks for interview.</p>
+<p>Remember that 3.2% is a big magnitude, as it represents about 50% differential. In practical terms, Black applicants has to send 15 CVs to secure one interview rather than 10 CVs for White applicants.</p>
+<p>The coefficient of the treatment variable is also statistically significant at level of significance (<span class="math notranslate nohighlight">\(\alpha\)</span> = 1%).</p>
+<p>The t-value of -4.115 is the ratio:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{coefficient}{standard\ error} =\frac{-0.032}{0.008} = -4.115\]</div>
+<p>The null hypothesis is:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta=0\]</div>
+<p>The t-value of -4 means that the observed value (-3.2%) is 4 standard deviation below the mean (<span class="math notranslate nohighlight">\(\beta=0\)</span>). The p-value or probability  of getting this value at chance is virtually 0. Therefore, we reject the null hypothesis that the magnitude of treatment is 0.</p>
+<p>We would also reject the null hypothesis based on the 95% confidence interval [-4.7% to -1.7%]. See that the <span class="math notranslate nohighlight">\(\beta=0\)</span> is not inside the confidence interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Data from Bertrand &amp; Mullainathan (2004)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/causal-methods/Data/raw/master/&quot;</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;lakisha_aer.dta&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create intercept</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Create treatment variable</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Fit simple regression model</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;Treatment&#39;</span><span class="p">]],</span>
+                    <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Print the results                    </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ols</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.6/dist-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  import pandas.util.testing as tm
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0965      0.006     17.532      0.000       0.086       0.107
+Treatment     -0.0320      0.008     -4.115      0.000      -0.047      -0.017
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-it-necessary-to-run-a-regression-to-establish-causality">
+<h2>9.5) Is it necessary to run a regression to establish causality?<a class="headerlink" href="#is-it-necessary-to-run-a-regression-to-establish-causality" title="Permalink to this headline">¶</a></h2>
+<p>It is not necessary to run a regression to establish causality. The same results of the regression above can be obtained by mean comparison. See the table below.</p>
+<p>Only 6.4% of Blacks received a callback; whereas 9.6% of Whites received a callback.</p>
+<p>The slope is 0.064 - 0.096 = -0.032</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="s1">&#39;call&#39;</span><span class="p">,</span> <span class="s1">&#39;race&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>call</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>race</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>0.064476</td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>0.096509</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The practical advantage of regression is that the computer automatically provides the standard errors, t-statistic, p-value, and 95% confidence interval.</p>
+<p>We also can get the same t-statistic and p-value from the regression. Note that pvalue=3.940802103128886e-05 is 0, as e-05 = <span class="math notranslate nohighlight">\(\frac{1}{10^5}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">white</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span> 
+<span class="n">black</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span> 
+<span class="n">TwoTail</span><span class="o">=</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">white</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span><span class="n">black</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">TwoTail</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=4.114705290861751, pvalue=3.940802103128886e-05)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-the-slope-beta-1-equal-to-the-correlation-between-x-and-y">
+<h2>9.6) Is the slope <span class="math notranslate nohighlight">\(\beta_1\)</span> equal to the correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>?<a class="headerlink" href="#is-the-slope-beta-1-equal-to-the-correlation-between-x-and-y" title="Permalink to this headline">¶</a></h2>
+<p>The formula for the slope <span class="math notranslate nohighlight">\(\beta_1\)</span> in a simple regression is:</p>
+<div class="math notranslate nohighlight">
+\[ \beta_1 = \rho \cdot \frac{SD(Y)}{SD(X)}\]</div>
+<p>The slope <span class="math notranslate nohighlight">\(\beta_1\)</span> is equal to the correlation <span class="math notranslate nohighlight">\(\rho\)</span>, when the standard deviation of <span class="math notranslate nohighlight">\(Y\)</span> is equal to the standard deviation of <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[SD(Y) = SD(Y)\]</div>
+<p>As <span class="math notranslate nohighlight">\(SD(X)\)</span> and <span class="math notranslate nohighlight">\(SD(Y)\)</span> can only be a positive number, a positive correlation (<span class="math notranslate nohighlight">\(\rho &gt;0\)</span>) means a positive slope; while a negative correlation (<span class="math notranslate nohighlight">\(\rho &lt;0\)</span>) means a negative slope.</p>
+<p>Let’s reproduce the result of the regression table in 8.4:</p>
+<div class="math notranslate nohighlight">
+\[  \hat{\beta_1} = -0.058 \cdot \frac{0.272}{0.5}    \]</div>
+<div class="math notranslate nohighlight">
+\[ = -0.032\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">])</span>
+<span class="n">correlation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[ 1.       , -0.0588721],
+       [-0.0588721,  1.       ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">])</span>
+<span class="n">sdx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sdy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">])</span>
+<span class="n">sdy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.27205151319503784
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beta1</span> <span class="o">=</span> <span class="n">correlation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">sdy</span><span class="o">/</span><span class="n">sdx</span>
+<span class="n">beta1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-0.03203248755487692
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-the-formula-for-the-intercept-beta-0">
+<h2>9.7) What is the formula for the intercept, <span class="math notranslate nohighlight">\(\beta_0\)</span>?<a class="headerlink" href="#what-is-the-formula-for-the-intercept-beta-0" title="Permalink to this headline">¶</a></h2>
+<p>The formula for the intercept, <span class="math notranslate nohighlight">\(\beta_0\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[ \beta_0 = E[Y] - \beta_1E(X) \]</div>
+<p>For data notation:</p>
+<div class="math notranslate nohighlight">
+\[ \hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x} \]</div>
+<div class="math notranslate nohighlight">
+\[ =0.0804-(0.032\cdot0.5)  \]</div>
+<div class="math notranslate nohighlight">
+\[ =0.0965  \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ymean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">])</span>
+<span class="n">ymean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.08049281686544418
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">])</span>
+<span class="n">xmean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beta0</span> <span class="o">=</span> <span class="n">ymean</span> <span class="o">-</span> <span class="p">(</span><span class="n">beta1</span><span class="o">*</span><span class="n">xmean</span><span class="p">)</span>
+<span class="n">beta0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.09650906064288264
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-the-r-squared-r-2-in-a-simple-regression">
+<h2>9.8) What is the R-squared, <span class="math notranslate nohighlight">\(R^2\)</span> in a simple regression?<a class="headerlink" href="#what-is-the-r-squared-r-2-in-a-simple-regression" title="Permalink to this headline">¶</a></h2>
+<p>R-squared is the square of the correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. It measures the percentage of “explained” variation in <span class="math notranslate nohighlight">\(Y\)</span> by using <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Let’s calculate the <span class="math notranslate nohighlight">\(R^2\)</span> for the regression in 8.4:</p>
+<div class="math notranslate nohighlight">
+\[ R^2 = \rho^2_{XY}\]</div>
+<div class="math notranslate nohighlight">
+\[ =-0.058^2 \]</div>
+<div class="math notranslate nohighlight">
+\[ = 0.0034\]</div>
+<p>The explanatory variable ‘race’ explains 0.34% of the variation in the response variable ‘call’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">correlation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">correlation</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r2</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.003465924109706403
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ols</span><span class="o">.</span><span class="n">rsquared</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0034659599042828892
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="should-i-care-about-r-2-to-establish-causality">
+<h2>9.9) Should I care about <span class="math notranslate nohighlight">\(R^2\)</span> to establish causality?<a class="headerlink" href="#should-i-care-about-r-2-to-establish-causality" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> is irrelevant to establish causality. The previous example shows that ‘race’ and ‘call’ were pretty much uncorrelated (<span class="math notranslate nohighlight">\(r = -0.058\)</span>) and <span class="math notranslate nohighlight">\(R^2\)</span> was below 1%. However, ‘race’ was randomized, and the coefficient of the ‘race’ was statistically significant. Therefore, we can rigorously claim that being Black causes a lower callback for interview. In other words, racial discrimination is real.</p>
+<p>Note that <span class="math notranslate nohighlight">\(R^2\)</span> only captures linear association, that is, how the data points are closer to the line. When both explanatory and response variable only vary from 0 to 1, the data points don’t fit well to the line.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| Explain what is the difference between correlation and causation in the context of simple regression?</p>
+<p>2| Bertrand &amp; Mullainathan (2004) randomized another variable ‘h’. The variable ‘h’: 1 = higher quality curriculum vitae; 0 = lower quality curriculum vitae. What is the proportion of callback for an interview broken by quality of curriculum vitae?</p>
+<p>3| Run a simple regression with response variable ‘call’ and explanatory variable ‘h’.</p>
+<p>a) Interpret the intercept and slope.</p>
+<p>b) What is the p-value of the variable ‘h’?</p>
+<p>c) Is the quality curriculum vitae statistically significant at <span class="math notranslate nohighlight">\(\alpha = 5\%\)</span>? and  <span class="math notranslate nohighlight">\(\alpha = 10\%\)</span>?</p>
+<p>d) What is the range of the 95% confidence interval of the intercept?</p>
+<p>e) Is the intercept statistically significant? Adopt a level of significance <span class="math notranslate nohighlight">\(\alpha\)</span> and justify.</p>
+<p>f) Calculate the <span class="math notranslate nohighlight">\(R^2\)</span>. Interpret the obtained value.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., DeNero, J. (2020). Computational and Inferential Thinking: The Foundations of Data Science. <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Link</a></p>
+<p>Bertrand, Marianne, and Sendhil Mullainathan. (2004). Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination. American Economic Review, 94 (4): 991-1013.</p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="8)_Experiment.html" title="previous page">8) Experiment</a>
+    <a class='right-next' id="next-link" href="10)_Multiple_Regression.html" title="next page">10) Multiple Regression</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

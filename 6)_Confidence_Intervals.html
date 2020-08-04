@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6) Confidence Intervals &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7) Statistical Tests" href="7)_Statistical_Tests.html" />
+    <link rel="prev" title="5) Samples and Sampling Variation" href="5)_Samples_and_Sampling_Variation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1)_Foundations_of_Probability.html">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2)_Random_Variables.html">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3)_Association_between_Random_Variables.html">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9)_Simple_Regression.html">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10)_Multiple_Regression.html">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/6)_Confidence_Intervals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-confidence-interval">
+   6.1) What is the confidence interval?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-z-interval-for-proportion-p">
+   6.2) What is the z-interval for proportion (
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+   )?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#microsoft-believes-that-75-of-windows-users-are-super-satisfied-with-the-operational-system-if-that-s-the-case-what-range-holds-95-of-all-sample-proportions-if-n-225">
+   6.3) Microsoft believes that 75% of Windows users are super satisfied with the operational system. If that’s the case, what range holds 95% of all sample proportions if
+   <span class="math notranslate nohighlight">
+    \(n=225\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-student-s-t-distribution">
+   6.4) What is Student’s t-distribution?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-t-interval-for-the-mean-mu">
+   6.5) What is the t-interval for the mean (
+   <span class="math notranslate nohighlight">
+    \(\mu\)
+   </span>
+   )?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-manager-claims-that-the-clients-have-on-average-6-200-in-the-bank-how-reasonable-is-the-claim">
+   6.6) A manager claims that the clients have on average $6,200 in the bank. How reasonable is the claim?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-margin-of-error">
+   6.7) What is the margin of error?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#justify-the-numbers-below">
+   6.8) Justify the numbers below:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="confidence-intervals">
+<h1>6) Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 7-21-2020</p>
+<div class="section" id="what-is-the-confidence-interval">
+<h2>6.1) What is the confidence interval?<a class="headerlink" href="#what-is-the-confidence-interval" title="Permalink to this headline">¶</a></h2>
+<p>Confidence interval is a range of values for a parameter of the sampled population.</p>
+<p>Narrow confidence interval suggests precise estimate. Wide confidence interval suggests that little is known about the population.</p>
+</div>
+<div class="section" id="what-is-the-z-interval-for-proportion-p">
+<h2>6.2) What is the z-interval for proportion (<span class="math notranslate nohighlight">\(p\)</span>)?<a class="headerlink" href="#what-is-the-z-interval-for-proportion-p" title="Permalink to this headline">¶</a></h2>
+<p>A confidence interval that assumes a normal model for the sampling distribution.</p>
+<p>Confidence interval for proportion (<span class="math notranslate nohighlight">\(p\)</span>) is:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{p}\pm z_{\frac{\alpha}{2}} \cdot se(\hat{p}) \]</div>
+<div class="math notranslate nohighlight">
+\[ \hat{p}\pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</div>
+<p>where <span class="math notranslate nohighlight">\(P(Z&gt;z_{\alpha})=\alpha\)</span> for <span class="math notranslate nohighlight">\(Z\sim N(0,1)\)</span>. For a 95% confidence interval, the level of significance (<span class="math notranslate nohighlight">\(\alpha\)</span>) is 5%, then <span class="math notranslate nohighlight">\(z_{2.5\%} = 1.96\)</span>.</p>
+</div>
+<div class="section" id="microsoft-believes-that-75-of-windows-users-are-super-satisfied-with-the-operational-system-if-that-s-the-case-what-range-holds-95-of-all-sample-proportions-if-n-225">
+<h2>6.3) Microsoft believes that 75% of Windows users are super satisfied with the operational system. If that’s the case, what range holds 95% of all sample proportions if <span class="math notranslate nohighlight">\(n=225\)</span>?<a class="headerlink" href="#microsoft-believes-that-75-of-windows-users-are-super-satisfied-with-the-operational-system-if-that-s-the-case-what-range-holds-95-of-all-sample-proportions-if-n-225" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ \hat{p}\pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</div>
+<div class="math notranslate nohighlight">
+\[ 0.75\pm 1.96\sqrt{\frac{0.75(1-{0.75})}{225}} \]</div>
+<div class="math notranslate nohighlight">
+\[ 0.693 \leq p \leq  0.807 \]</div>
+</div>
+<div class="section" id="what-is-student-s-t-distribution">
+<h2>6.4) What is Student’s t-distribution?<a class="headerlink" href="#what-is-student-s-t-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Student’s t-distribution is a model for the sampling distribution that compensates for substituting the standard deviation of the sample (<span class="math notranslate nohighlight">\(s\)</span>) for the standard deviation of the population (<span class="math notranslate nohighlight">\(\sigma\)</span>) in the standard error.</p>
+<p>Student’s t-distribution is the exact sampling distribution of the random variable:</p>
+<div class="math notranslate nohighlight">
+\[T_{n-1} = \frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\((n-1)\)</span> is the degrees of freedom (df). As <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>, t-distribution converge to normal distribution.</p>
+<p>See in the chart that t-distribution with degrees of freedom (<span class="math notranslate nohighlight">\(df=5\)</span>) has thick tails that accommodates more numbers of outliers than the normal distribution. Note that t-distribution with degrees of freedom (<span class="math notranslate nohighlight">\(df=30\)</span>) is indistinguishable from normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">t_dist5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t, df=5&#39;</span><span class="p">)</span>
+<span class="n">t_dist30</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t, df=30&#39;</span><span class="p">)</span>
+
+<span class="n">normal_dist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6)_Confidence_Intervals_10_0.png" src="_images/6)_Confidence_Intervals_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="what-is-the-t-interval-for-the-mean-mu">
+<h2>6.5) What is the t-interval for the mean (<span class="math notranslate nohighlight">\(\mu\)</span>)?<a class="headerlink" href="#what-is-the-t-interval-for-the-mean-mu" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span> confidence t-interval for <span class="math notranslate nohighlight">\(\mu\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}\ \pm t_{\frac{\alpha}{2},n-1}\frac{s}{\sqrt{n}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(T_{n-1} &gt; t_{\frac{\alpha}{2},n-1}) = \frac{\alpha}{2}\)</span> for <span class="math notranslate nohighlight">\(T_{n-1}\)</span> distributed as a student’s t-random variable with degrees of freedom (<span class="math notranslate nohighlight">\(df = n-1\)</span>).</p>
+</div>
+<div class="section" id="a-manager-claims-that-the-clients-have-on-average-6-200-in-the-bank-how-reasonable-is-the-claim">
+<h2>6.6) A manager claims that the clients have on average $6,200 in the bank. How reasonable is the claim?<a class="headerlink" href="#a-manager-claims-that-the-clients-have-on-average-6-200-in-the-bank-how-reasonable-is-the-claim" title="Permalink to this headline">¶</a></h2>
+<p>A random sample of 49 clients shows the average <span class="math notranslate nohighlight">\(\bar{x}=4,200\)</span> with standard deviation (<span class="math notranslate nohighlight">\(s = 3,500\)</span>).</p>
+<p>We can use the code below to get:</p>
+<div class="math notranslate nohighlight">
+\[t_{\frac{\alpha}{2},n-1} =
+ t_{2.5\%,48} =-2.01 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">48</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-2.010634754696446
+</pre></div>
+</div>
+</div>
+</div>
+<p>The 95% confidence interval for <span class="math notranslate nohighlight">\(\mu\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}\ \pm t_{\frac{\alpha}{2},n-1}\frac{s}{\sqrt{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[ 4,200 \pm 2.01 \frac{3,500}{\sqrt{49}} \]</div>
+<p>$$ $3,195 \leq \mu \leq $5,205 $$</p>
+<p>The manager’ claim is not compatible with the data. The average $6,200 is far above the confidence interval.</p>
+</div>
+<div class="section" id="what-is-the-margin-of-error">
+<h2>6.7) What is the margin of error?<a class="headerlink" href="#what-is-the-margin-of-error" title="Permalink to this headline">¶</a></h2>
+<p>Margin of error (ME) of 95% confidence interval for <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ ME = t_{2.5\%,n-1}\frac{s}{\sqrt{n}}\]</div>
+<p>Margin of error (ME) of 95% confidence interval for <span class="math notranslate nohighlight">\(p\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ ME = z_{2.5\%}\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}}\]</div>
+<p>It is very common to round and replace the <span class="math notranslate nohighlight">\(t_{2.5\%,n-1}\)</span> and <span class="math notranslate nohighlight">\(z_{2.5\%}\)</span> by 2.</p>
+</div>
+<div class="section" id="justify-the-numbers-below">
+<h2>6.8) Justify the numbers below:<a class="headerlink" href="#justify-the-numbers-below" title="Permalink to this headline">¶</a></h2>
+<p><img alt="alt text" src="https://github.com/causal-methods/Data/raw/master/figures/MarginError.PNG" /></p>
+<div class="math notranslate nohighlight">
+\[ ME = z_{2.5\%}\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}}\]</div>
+<p>Replace <span class="math notranslate nohighlight">\(z_{2.5\%}\)</span> by 2. The variance, <span class="math notranslate nohighlight">\(\hat{p}(1-\hat{p})\)</span>, is maximum, when <span class="math notranslate nohighlight">\(\hat{p} = \frac{1}{2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ ME = 2\frac{\sqrt{\frac{1}{2}(1-\frac
+{1}{2})}}{\sqrt{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[ ME = 2\frac{\sqrt{\frac{1}{2}(1-\frac
+{1}{2})}}{\sqrt{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[ ME = 2\frac{(\frac
+{1}{2})}{\sqrt{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[ ME = \frac{1}{\sqrt{n}}\]</div>
+<p>Let’s test <span class="math notranslate nohighlight">\(n=400\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ ME = \frac{1}{\sqrt{400}} \]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{20} \]</div>
+<div class="math notranslate nohighlight">
+\[= 0.05 \]</div>
+<div class="math notranslate nohighlight">
+\[=5\% \]</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| Find the 95% z-interval for the parameter <span class="math notranslate nohighlight">\(p\)</span>, given <span class="math notranslate nohighlight">\(\hat{p}=0.5\)</span>, <span class="math notranslate nohighlight">\(n=36\)</span>.</p>
+<p>2| A school claims that the students have on average a score of 690 in SAT Math Test. How reasonable is the claim? A random sample of 36 students from this school has average <span class="math notranslate nohighlight">\(\bar{x}= 650\)</span>, with standard deviation (<span class="math notranslate nohighlight">\(s=100\)</span>).</p>
+<p>3| Do you agree with the statement: “All other things the same, a 90% confidence interval is narrow than a 95% confidence interval.” Justify.</p>
+<p>4| What is the probability that <span class="math notranslate nohighlight">\(\bar{X}&gt;\mu?\)</span></p>
+<p>5|  What is the coverage of the confidence interval <span class="math notranslate nohighlight">\([\hat{p}\)</span> to <span class="math notranslate nohighlight">\(1]\)</span>?</p>
+<p>6| Fox News interviewed 500 voters and claimed that the margin of error is less than 3% to predict the outcome of the election. Do you agree? Justify.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., DeNero, J. (2020). Computational and Inferential Thinking: The Foundations of Data Science. <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Link</a></p>
+<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="5)_Samples_and_Sampling_Variation.html" title="previous page">5) Samples and Sampling Variation</a>
+    <a class='right-next' id="next-link" href="7)_Statistical_Tests.html" title="next page">7) Statistical Tests</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1) Foundations of Probability &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2) Random Variables" href="2)_Random_Variables.html" />
+    <link rel="prev" title="Probability and Statistics with Python" href="Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2)_Random_Variables.html">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3)_Association_between_Random_Variables.html">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6)_Confidence_Intervals.html">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9)_Simple_Regression.html">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10)_Multiple_Regression.html">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1)_Foundations_of_Probability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-probability-of-getting-a-head-h-or-tail-t-when-you-flip-a-coin">
+   1.1) What is the probability of getting a Head (H) or Tail (T), when you flip a coin?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-a-regular-deck-what-is-the-probability-of-getting-a-diamond-card-or-face-card">
+   1.2) In a regular deck, what is the probability of getting a diamond card or face card?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-a-regular-deck-is-the-event-getting-a-heart-card-independent-from-the-event-getting-an-ace">
+   1.3) In a regular deck, is the event getting a heart card independent from the event getting an Ace?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#according-with-venn-diagram-below-events-a-and-b-are-independent">
+   1.4) According with Venn diagram below, events A and B are independent?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-p-a-b-p-a">
+   1.5) When P(A|B) = P(A)?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-do-you-believe-that-the-probability-of-getting-a-tail-in-a-fair-coin-is-equal-to-frac-1-2">
+   1.6) Why do you believe that the probability of getting a Tail in a fair coin is equal to
+   <span class="math notranslate nohighlight">
+    \(\frac{1}{2}\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-a-female-tests-positive-for-breast-cancer-what-is-the-probability-that-she-in-fact-has-cancer">
+   1.7) If a female tests positive for breast cancer, what is the probability that she in fact has cancer?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="foundations-of-probability">
+<h1>1) Foundations of Probability<a class="headerlink" href="#foundations-of-probability" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 7-17-2020</p>
+<div class="section" id="what-is-the-probability-of-getting-a-head-h-or-tail-t-when-you-flip-a-coin">
+<h2>1.1) What is the probability of getting a Head (H) or Tail (T), when you flip a coin?<a class="headerlink" href="#what-is-the-probability-of-getting-a-head-h-or-tail-t-when-you-flip-a-coin" title="Permalink to this headline">¶</a></h2>
+<p>Let’s visualize the concept of mutually exclusive, using Venn diagrams.</p>
+<p>First, let’s import Python library to draw Venn diagrams.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib_venn</span> <span class="kn">import</span> <span class="n">venn2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the events Head (H) and Tail (T) with respective probabilities:</p>
+<div class="math notranslate nohighlight">
+\[P(H)=\frac{1}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[P(T)=\frac{1}{2}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">venn2</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">set_labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Head&#39;</span><span class="p">,</span> <span class="s1">&#39;Tail&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib_venn._common.VennDiagram at 0x20cb91555c8&gt;
+</pre></div>
+</div>
+<img alt="_images/1)_Foundations_of_Probability_6_1.png" src="_images/1)_Foundations_of_Probability_6_1.png" />
+</div>
+</div>
+<p>Disjoint events are mutually exclusive, if they have no outcomes in common.</p>
+<p>When you flip a coin, the events Head (H) and Tail (T) are mutually exclusive.</p>
+<p>If <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(T\)</span> are disjoint events, then</p>
+<div class="math notranslate nohighlight">
+\[ P(H\cup T) = P(H) + P(T) \]</div>
+<div class="math notranslate nohighlight">
+\[ = \frac{1}{2} + \frac{1}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ = 1 \]</div>
+</div>
+<div class="section" id="in-a-regular-deck-what-is-the-probability-of-getting-a-diamond-card-or-face-card">
+<h2>1.2) In a regular deck, what is the probability of getting a diamond card or face card?<a class="headerlink" href="#in-a-regular-deck-what-is-the-probability-of-getting-a-diamond-card-or-face-card" title="Permalink to this headline">¶</a></h2>
+<p>For any two events A and B, the probability that one or the other occurs is the sum of the probability minus the probability ot their intersection:</p>
+<div class="math notranslate nohighlight">
+\[ P(A\cup B) = P(A) + P(B) - P(A\cap B) \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">venn2</span><span class="p">(</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib_venn._common.VennDiagram at 0x20cb91e1b48&gt;
+</pre></div>
+</div>
+<img alt="_images/1)_Foundations_of_Probability_10_1.png" src="_images/1)_Foundations_of_Probability_10_1.png" />
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[ P(\diamondsuit) + P(face\ card) - P(\diamondsuit \cap face\ card)\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{13}{52} + \frac{12}{52} - \frac{3}{52} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span><span class="o">/</span><span class="mi">52</span> <span class="o">+</span> <span class="mi">12</span><span class="o">/</span><span class="mi">52</span> <span class="o">-</span> <span class="mi">3</span><span class="o">/</span><span class="mi">52</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.4230769230769231
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="in-a-regular-deck-is-the-event-getting-a-heart-card-independent-from-the-event-getting-an-ace">
+<h2>1.3) In a regular deck, is the event getting a heart card independent from the event getting an Ace?<a class="headerlink" href="#in-a-regular-deck-is-the-event-getting-a-heart-card-independent-from-the-event-getting-an-ace" title="Permalink to this headline">¶</a></h2>
+<p>Two events are independent if the occurrence of one does not affect the chances for the occurrence of the other.</p>
+<p>There is no reason to believe that getting a heart card can affect the probability of getting an Ace, and vice-versa.</p>
+<p>Two events A and B are independent if the probability that both A and B occur is the product of the probabilities of the two events:</p>
+<div class="math notranslate nohighlight">
+\[ P(A\cap B) = P(A)\cdot P(B) \]</div>
+<div class="math notranslate nohighlight">
+\[ P(\heartsuit \cap Ace) = P(\heartsuit)\cdot P(Ace) \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{52} = \frac{1}{4}\cdot \frac{1}{13} \]</div>
+<p><span class="math notranslate nohighlight">\(P(\heartsuit \cap Ace) = P(Ace\ of\ Hearts) = \frac{1}{52}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\heartsuit) = \frac{13}{52} = \frac{1}{4}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Ace) = \frac{4}{52} = \frac{1}{13}\)</span></p>
+<p>Therefore, these two events are independent and can be written:</p>
+<div class="math notranslate nohighlight">
+\[ P(\heartsuit) \perp P(Ace)\]</div>
+</div>
+<div class="section" id="according-with-venn-diagram-below-events-a-and-b-are-independent">
+<h2>1.4) According with Venn diagram below, events A and B are independent?<a class="headerlink" href="#according-with-venn-diagram-below-events-a-and-b-are-independent" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">venn2</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib_venn._common.VennDiagram at 0x20cb923a288&gt;
+</pre></div>
+</div>
+<img alt="_images/1)_Foundations_of_Probability_17_1.png" src="_images/1)_Foundations_of_Probability_17_1.png" />
+</div>
+</div>
+<p>No. Events A and B are dependents.</p>
+<p>If I have the information that event A occurred, I know for sure that event B didn’t occur, and vice-versa.</p>
+<p><span class="math notranslate nohighlight">\(P(A) = 0.5\)</span> and <span class="math notranslate nohighlight">\(P(B) = 0.5\)</span></p>
+<div class="math notranslate nohighlight">
+\[0 = P(A\cap B) \neq P(A)\cdot P(B) = \frac{1}{4}\]</div>
+</div>
+<div class="section" id="when-p-a-b-p-a">
+<h2>1.5) When P(A|B) = P(A)?<a class="headerlink" href="#when-p-a-b-p-a" title="Permalink to this headline">¶</a></h2>
+<p>By definition, the probability of event A given that the event B occurs is:</p>
+<div class="math notranslate nohighlight">
+\[ P(A|B) = \frac{P(A\cap B)}{P(B)}  \]</div>
+<p>If A and B are independent, then <span class="math notranslate nohighlight">\(P(A\cap B) = P(A)\cdot P(B)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ P(A|B) = \frac{P(A)\cdot P(B)}{P(B)}  \]</div>
+<div class="math notranslate nohighlight">
+\[ =P(A)\]</div>
+<p><strong>Intuition</strong>: Knowledge of event B doesn’t affect the probability of event A.</p>
+</div>
+<div class="section" id="why-do-you-believe-that-the-probability-of-getting-a-tail-in-a-fair-coin-is-equal-to-frac-1-2">
+<h2>1.6) Why do you believe that the probability of getting a Tail in a fair coin is equal to <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>?<a class="headerlink" href="#why-do-you-believe-that-the-probability-of-getting-a-tail-in-a-fair-coin-is-equal-to-frac-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Probability = Long Run Relative Frequency</p>
+<p>The Law of Large Numbers (LLN): The relative frequency of an outcome converges to a number, as the number of observed outcomes increases.</p>
+<p>LLN assumes that events are independent.</p>
+<p>If you toss a coin thousand of times, the proportion of Tails will be likely closer to <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>.</p>
+<p>Let’s toss a coin 10,000 times and count how many Tails:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span> 
+<span class="n">result</span><span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">toss</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+   <span class="n">coin</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;Head&#39;</span><span class="p">,</span> <span class="s1">&#39;Tail&#39;</span><span class="p">])</span> 
+   <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coin</span><span class="p">)</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Tail&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4981
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-a-female-tests-positive-for-breast-cancer-what-is-the-probability-that-she-in-fact-has-cancer">
+<h2>1.7) If a female tests positive for breast cancer, what is the probability that she in fact has cancer?<a class="headerlink" href="#if-a-female-tests-positive-for-breast-cancer-what-is-the-probability-that-she-in-fact-has-cancer" title="Permalink to this headline">¶</a></h2>
+<p>The question asked what is the probabilty of a female has breast cancer conditional on she tested positive:</p>
+<div class="math notranslate nohighlight">
+\[P(Cancer|Test\ Positive) \]</div>
+<div class="math notranslate nohighlight">
+\[ = \frac{P(Cancer\cap Test  \ Positive)}{P(Test \  Positive)}\]</div>
+<p>Based on data from Banks et al. (2004), the probability of a mammography detects cancer is 0.87. Among females without cancer, the probability for a negative result is 0.97. The overall incidence of breast cancer is 0.003.</p>
+<p>We can calculate that:</p>
+<div class="math notranslate nohighlight">
+\[ P(Cancer\cap Test  \ Positive) \]</div>
+<div class="math notranslate nohighlight">
+\[ = P(Cancer)\cdot P(Test \ Positive|Cancer)\]</div>
+<div class="math notranslate nohighlight">
+\[ = 0.003\cdot 0.87 \]</div>
+<div class="math notranslate nohighlight">
+\[ = 0.00261 \]</div>
+<div class="math notranslate nohighlight">
+\[ P(No \ Cancer\cap Test \ Negative) \]</div>
+<div class="math notranslate nohighlight">
+\[ = P(No \ Cancer)\cdot P(Test \ Negative\ |No \ Cancer)\]</div>
+<div class="math notranslate nohighlight">
+\[ = 0.997\cdot 0.97 \]</div>
+<div class="math notranslate nohighlight">
+\[ = 0.96709 \]</div>
+<p>It is easy to organize the information in a table:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Positive</p></th>
+<th class="head"><p>Negative</p></th>
+<th class="head"><p>Total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cancer</p></td>
+<td><p>0.00261</p></td>
+<td><p></p></td>
+<td><p>0.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>No Cancer</p></td>
+<td><p></p></td>
+<td><p>0.96709</p></td>
+<td><p>0.997</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>We can infer the other values of the table, as the sum of the joint probabilities (inside) is equal to the marginal probability on the border.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Positive</p></th>
+<th class="head"><p>Negative</p></th>
+<th class="head"><p>Total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cancer</p></td>
+<td><p>0.00261</p></td>
+<td><p>0.00039</p></td>
+<td><p>0.003</p></td>
+</tr>
+<tr class="row-odd"><td><p>No Cancer</p></td>
+<td><p>0.02991</p></td>
+<td><p>0.96709</p></td>
+<td><p>0.997</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p>0.03252</p></td>
+<td><p>0.96748</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="math notranslate nohighlight">
+\[P(Cancer|Test\ Positive) \]</div>
+<div class="math notranslate nohighlight">
+\[ = \frac{0.00261}{0.03252}\]</div>
+<div class="math notranslate nohighlight">
+\[ =0.0803 \]</div>
+<p>The probability that a female, who tested positive, has breast cancer is only 8%. This result is counter-intuitive, because humans do not process well events with very low probability. Unless, a person is educated in the probability laws, she might believe that she was cured by a divine force.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| Disjoint events are not equal independent events. Define in plain English the difference between both concepts.</p>
+<p>2| Assume a fair coin: P(H) = 0.5 and P(T) = 0.5. Is the event getting a Tail independent from the event getting a Head? Justify your answer rigorously.</p>
+<p>3| Write a code to roll a die 60,000 times and count how many times the face 3 show up.</p>
+<p>4| Events A and B are independent. Draw both events, using the function ‘venn2’.</p>
+<p>5| Let A = {student is absent} and C = {student has coronavirus}. Decide if each statement is True or False. Justify your choice.</p>
+<p>a) If the probability for a student to be absent is greater than the probability for a student has coronavirus, then <span class="math notranslate nohighlight">\(P(A|C) &gt; P(C|A)\)</span>.</p>
+<p>b) The probability that a student has coronavirus when it is known that the student is absent is equal to the probability that a student is absent when it is known that the student has coronavirus.</p>
+<p>c) If the probability for a student to be absent is greater than the probability for a student to be sick, then A and C are dependent events.</p>
+<p>d) The probability of a student being absent is greater than the probability that the student is absent given that the student has coronavirus.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
+<p>Banks, Emily et al. (2004). Influence of personal characteristics of individual women on sensitivity and specificity of mammography in the Million Women Study: cohort study. BMJ (Clinical research ed.) vol. 329,7464: 477. doi:10.1136/bmj.329.7464.477</p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">Probability and Statistics with Python</a>
+    <a class='right-next' id="next-link" href="2)_Random_Variables.html" title="next page">2) Random Variables</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
