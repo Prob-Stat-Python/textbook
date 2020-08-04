@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>10) Multiple Regression &#8212; Probability and Statistics with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="9) Simple Regression" href="9)_Simple_Regression.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Probability and Statistics with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Probability and Statistics with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1)_Foundations_of_Probability.html">
+   1) Foundations of Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2)_Random_Variables.html">
+   2) Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3)_Association_between_Random_Variables.html">
+   3) Association between Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4)_The_Normal_Probability_Model.html">
+   4) The Normal Probability Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5)_Samples_and_Sampling_Variation.html">
+   5) Samples and Sampling Variation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6)_Confidence_Intervals.html">
+   6) Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7)_Statistical_Tests.html">
+   7) Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8)_Experiment.html">
+   8) Experiment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9)_Simple_Regression.html">
+   9) Simple Regression
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10) Multiple Regression
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/10)_Multiple_Regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-multiple-regression-model">
+   10.1) What is a multiple regression model?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-consequence-of-running-a-simple-regression-rather-than-a-multiple-regression">
+   10.2) What is the consequence of running a simple regression rather than a multiple regression?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-a-multiple-regression-to-check-if-an-experimental-study-is-reliable">
+   10.3) How to use a multiple regression to check if an experimental study is reliable?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-an-observational-study-are-the-results-from-multiple-regression-more-credible-than-simple-regression">
+   10.4) In an observational study, are the results from multiple regression more credible than simple regression?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-an-observational-study-comparing-simple-and-multiple-regressions-how-different-might-be-the-coefficients">
+   10.5) In an observational study, comparing simple and multiple regressions, how different might be the coefficients?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="multiple-regression">
+<h1>10) Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">¶</a></h1>
+<p>Vitor Kamada</p>
+<p>econometrics.methods&#64;gmail.com</p>
+<p>Last updated 8-2-2020</p>
+<div class="section" id="what-is-a-multiple-regression-model">
+<h2>10.1) What is a multiple regression model?<a class="headerlink" href="#what-is-a-multiple-regression-model" title="Permalink to this headline">¶</a></h2>
+<p>Multiple regression is a model that measures how explanatory variables <span class="math notranslate nohighlight">\(X_1, X_2,...,X_k\)</span> are associated with a response variable <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[  Y = \beta_0 + \beta_1X_1 + \beta_2X_2 +...+ \beta_kX_k  +  \epsilon\]</div>
+<p>where the error term (<span class="math notranslate nohighlight">\(\epsilon\)</span>) follows normal distribution with mean 0 and variance <span class="math notranslate nohighlight">\(\sigma^2_\epsilon\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \epsilon \sim N(0, \sigma^2_\epsilon) \]</div>
+</div>
+<div class="section" id="what-is-the-consequence-of-running-a-simple-regression-rather-than-a-multiple-regression">
+<h2>10.2) What is the consequence of running a simple regression rather than a multiple regression?<a class="headerlink" href="#what-is-the-consequence-of-running-a-simple-regression-rather-than-a-multiple-regression" title="Permalink to this headline">¶</a></h2>
+<p>Assume the real model is:</p>
+<div class="math notranslate nohighlight">
+\[  Y = \beta_{0m} + \beta_{1m}X_1 + \beta_{2m}X_{2} +...+ \beta_{km}X_k  +  \epsilon_m\]</div>
+<p>where, <span class="math notranslate nohighlight">\(m\)</span> stands for multiple regression.</p>
+<p>A simple regression assumes that all other explanatory variables are inside the error term:</p>
+<div class="math notranslate nohighlight">
+\[  Y = \beta_{0s}  +  \beta_{1s}X_1 +  \epsilon_s\]</div>
+<div class="math notranslate nohighlight">
+\[  \epsilon_s = \beta_2X_2 +...+ \beta_kX_k \]</div>
+<p>where <span class="math notranslate nohighlight">\(s\)</span> stands for simple regression.</p>
+<p>The error term is the sum of all omitted variables in the regression. If these omitted variables are uncorrelated with the explanatory variable of interest (<span class="math notranslate nohighlight">\(X_1\)</span>), then <span class="math notranslate nohighlight">\(\beta_{1s} = \beta_{1m}\)</span>.</p>
+<p>Note that this is a special case:</p>
+<div class="math notranslate nohighlight">
+\[  Cov(X_1,X_j) =0, \  \ \forall \ j \ne 1\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_1\)</span> is randomized.</p>
+<p>Therefore, for observational studies,  <span class="math notranslate nohighlight">\(\beta_{1s}\)</span> is likely to be different than <span class="math notranslate nohighlight">\(\beta_{1m}\)</span>. In this case, we say that <span class="math notranslate nohighlight">\(\beta_{1s}\)</span> is biased and captures spurious effects.</p>
+</div>
+<div class="section" id="how-to-use-a-multiple-regression-to-check-if-an-experimental-study-is-reliable">
+<h2>10.3) How to use a multiple regression to check if an experimental study is reliable?<a class="headerlink" href="#how-to-use-a-multiple-regression-to-check-if-an-experimental-study-is-reliable" title="Permalink to this headline">¶</a></h2>
+<p>Based on theory, if the treatment variable (T) was randomized, then the treatment variable (T) will be independent of other factors:</p>
+<div class="math notranslate nohighlight">
+\[T \perp Other \ Factors\]</div>
+<p>In an experiment, the addition of other factors in the regression cannot affect the estimation of the coefficient of the treatment variable (<span class="math notranslate nohighlight">\(\beta_{1s}\)</span>). If you see substantial changes in <span class="math notranslate nohighlight">\(\beta_{1m}\)</span>, you can infer that you are not working with experimental data.</p>
+<p>Note that in observational studies, you must always control for other factors. Otherwise, you will have the omitted variable bias problem.</p>
+<p>We run simple and multiple regressions using the experimental data from Bertrand &amp; Mullainathan (2004), and we can conclude that the treatment variable was in fact randomized:</p>
+<div class="math notranslate nohighlight">
+\[\beta_{1s} = -0.032 \]</div>
+<div class="math notranslate nohighlight">
+\[\beta_{1m} = -0.031 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open data set from Bertrand &amp; Mullainathan (2004)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/causal-methods/Data/raw/master/&quot;</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;lakisha_aer.dta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple Regression</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">simple</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;Treatment&#39;</span><span class="p">]],</span>
+                    <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">simple</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>                    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0965      0.006     17.532      0.000       0.086       0.107
+Treatment     -0.0320      0.008     -4.115      0.000      -0.047      -0.017
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple Regression</span>
+<span class="n">other_factors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yearsexp&#39;</span><span class="p">,</span> <span class="s1">&#39;volunteer&#39;</span><span class="p">,</span> <span class="s1">&#39;military&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;workinschool&#39;</span><span class="p">,</span> <span class="s1">&#39;honors&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;computerskills&#39;</span><span class="p">,</span> <span class="s1">&#39;specialskills&#39;</span><span class="p">]</span>
+<span class="n">multiple_reg</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span>
+                      <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">other_factors</span><span class="p">],</span>
+                      <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiple_reg</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>                      
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==================================================================================
+                     coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+Intercept          0.0603      0.013      4.741      0.000       0.035       0.085
+Treatment         -0.0311      0.008     -4.026      0.000      -0.046      -0.016
+yearsexp           0.0029      0.001      3.611      0.000       0.001       0.005
+volunteer         -0.0033      0.011     -0.300      0.764      -0.025       0.018
+military          -0.0032      0.014     -0.219      0.827      -0.031       0.025
+email              0.0140      0.011      1.254      0.210      -0.008       0.036
+workinschool       0.0012      0.009      0.138      0.891      -0.016       0.018
+honors             0.0652      0.018      3.695      0.000       0.031       0.100
+computerskills    -0.0206      0.011     -1.922      0.055      -0.042       0.000
+specialskills      0.0623      0.008      7.355      0.000       0.046       0.079
+==================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="in-an-observational-study-are-the-results-from-multiple-regression-more-credible-than-simple-regression">
+<h2>10.4) In an observational study, are the results from multiple regression more credible than simple regression?<a class="headerlink" href="#in-an-observational-study-are-the-results-from-multiple-regression-more-credible-than-simple-regression" title="Permalink to this headline">¶</a></h2>
+<p>Overall, the results of a multiple regression are more credible in the sense of suffering less from the problem of omitted variable bias. However, even controlling for many factors, the estimated coefficients are likely to be biased.</p>
+</div>
+<div class="section" id="in-an-observational-study-comparing-simple-and-multiple-regressions-how-different-might-be-the-coefficients">
+<h2>10.5) In an observational study, comparing simple and multiple regressions, how different might be the coefficients?<a class="headerlink" href="#in-an-observational-study-comparing-simple-and-multiple-regressions-how-different-might-be-the-coefficients" title="Permalink to this headline">¶</a></h2>
+<p>It might be a big difference, a change of sign, leading to completely divergent explanations.</p>
+<p>For example, using data from Meyersson (2014), a simple regression indicates that in regions controlled by the Islamic party in Turkey, 2.58% less females complete high school compared to regions controlled by a secular party. You might believe that religion limits the educational opportunities of females.</p>
+<p>However, a multiple regression indicates the opposite, in regions controlled by the Islamic party in Turkey, 1.44% more females complete high school compared to regions controlled by a secular party. One explanation is that Islamic religion in fact improves the female high school completion. Maybe poverty is a confound factor that drives higher level of religiosity and poor educational outcome. Therefore, in the simple regression, maybe the religion variable is capturing the poverty effect rather than the true direct effect of religion.</p>
+<p>Note that both results from simple and multiple regression are statistically significant. The magnitudes of the coefficients are also relevant, as the proportion of females between 15 to 20 years old that completes high school is about only 15.4% in Turkey.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data from Meyersson (2014)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;regdata0.dta&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simple Regression</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">simple_reg</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;hischshr1520f&#39;</span><span class="p">],</span> <span class="n">df1</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;i94&#39;</span><span class="p">]],</span>
+                    <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">simple_reg</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.1662      0.002     83.813      0.000       0.162       0.170
+i94           -0.0258      0.006     -4.505      0.000      -0.037      -0.015
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple Regression</span>
+<span class="n">control</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lpop1994&#39;</span><span class="p">,</span> <span class="s1">&#39;ageshr19&#39;</span><span class="p">,</span> <span class="s1">&#39;merkezi&#39;</span><span class="p">]</span>
+<span class="n">mult_reg</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;hischshr1520f&#39;</span><span class="p">],</span>
+                      <span class="n">df1</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;i94&#39;</span><span class="p">,</span> <span class="s1">&#39;vshr_islam1994&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">control</span><span class="p">],</span>
+                      <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mult_reg</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>==================================================================================
+                     coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+Intercept          0.2835      0.014     19.919      0.000       0.256       0.311
+i94                0.0144      0.006      2.404      0.016       0.003       0.026
+vshr_islam1994    -0.0801      0.013     -6.113      0.000      -0.106      -0.054
+lpop1994           0.0104      0.002      6.710      0.000       0.007       0.013
+ageshr19          -0.5246      0.019    -28.095      0.000      -0.561      -0.488
+merkezi            0.0582      0.004     15.284      0.000       0.051       0.066
+==================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of females between 15 to 20 year that completes high school</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;hischshr1520f&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.1543141
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>1| Interpret the 4 values of the contingency table below. Specifically, state the meaning and compare the values.</p>
+<p>The variable ‘h’: 1 = higher quality curriculum vitae; 0 = lower quality curriculum vitae. This variable was randomized.</p>
+<p>Other variables were previously defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contingency_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">],</span> 
+                                <span class="n">values</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">contingency_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>h</th>
+      <th>0.0</th>
+      <th>1.0</th>
+    </tr>
+    <tr>
+      <th>Treatment</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.084983</td>
+      <td>0.107931</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.061881</td>
+      <td>0.067048</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>2| I created an interaction variable ‘h_Treatment’ that is the pairwise multiplication of the variable ‘h’ and ‘treatment’.</p>
+<p>How can you use the coefficients of the regression below to get the values of the contingency table in exercise 1? Show the calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;h_Treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span>
+<span class="n">interaction</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;call&#39;</span><span class="p">],</span>
+                      <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;h_Treatment&#39;</span><span class="p">]</span> <span class="p">],</span>
+                      <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interaction</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>     
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       0.0850      0.008     10.895      0.000       0.070       0.100
+Treatment      -0.0231      0.011     -2.094      0.036      -0.045      -0.001
+h               0.0229      0.011      2.085      0.037       0.001       0.045
+h_Treatment    -0.0178      0.016     -1.142      0.253      -0.048       0.013
+===============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>3| Write a code to get a contingency table below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>firstname\ h</p></th>
+<th class="head"><p>0.0</p></th>
+<th class="head"><p>1.0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Aisha</p></td>
+<td><p>0.010000</p></td>
+<td><p>0.037500</p></td>
+</tr>
+<tr class="row-odd"><td><p>Allison</p></td>
+<td><p>0.121739</p></td>
+<td><p>0.068376</p></td>
+</tr>
+</tbody>
+</table>
+<p>Inside the table are the callback rates broken by Curriculum Vitae quality.
+What is the callback rate for Kristen and Lakisha? Why the rates are so different? Could we justify the rate difference, arguing that one is more educated and qualified than other?</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Adhikari, A., DeNero, J. (2020). Computational and Inferential Thinking: The Foundations of Data Science. <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Link</a></p>
+<p>Bertrand, Marianne, and Sendhil Mullainathan. (2004). Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination. American Economic Review, 94 (4): 991-1013.</p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+<p>Meyersson, Erik. 2014. “Islamic Rule and the Empowerment of the Poor and Pious”. Econometrica, 82(1), 229-269.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="9)_Simple_Regression.html" title="previous page">9) Simple Regression</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Vitor Kamada<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

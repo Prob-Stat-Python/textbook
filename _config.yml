@@ -1,0 +1,7 @@
+# Book settings
+title: Probability and Statistics with Python
+author: Vitor Kamada
+
+latex:
+  latex_documents:
+    targetname: book.tex
