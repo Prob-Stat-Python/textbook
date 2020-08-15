@@ -4,10 +4,14 @@ By [Vitor Kamada](https://www.linkedin.com/in/vitor-kamada-1b73a078)
 
 E-mail: econometrics.methods@gmail.com
 
+<<<<<<< HEAD
 Last updated 8-15-2020
 
 This [Book](https://prob-stat-python.github.io/textbook) covers the main concepts of Probability and Statistics necessary to understand advanced methods in Econometrics, Data Science and Machine Learning. It was designed to provide the foundations for [Causal Inference with Python](https://causal-methods.github.io/Book
 ).
+=======
+Last updated 8-3-2020
+>>>>>>> a8542c89f551a4e79bae551a442a492493e9c4fb
 
 **YouTube Channels:**
 
