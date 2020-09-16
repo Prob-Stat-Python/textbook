@@ -283,6 +283,29 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#draw-the-distribution-or-probability-mass-function-pmf-of-a-random-variable-x-that-represents-one-roll-from-a-fair-six-sided-die">
+   2.10) Draw the distribution or probability mass function (PMF) of a random variable
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   , that represents one roll from a fair six-sided die.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-that-var-x-e-x-2-e-x-2">
+   2.11) Show that
+   <span class="math notranslate nohighlight">
+    \(Var(X)=E(X^2) -[E(X)]^2\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-bernoulli-random-variable">
+   2.12) What is the Bernoulli random variable?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -304,9 +327,9 @@
                 
   <div class="section" id="random-variables">
 <h1>2) Random Variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h1>
-<p>Vitor Kamada</p>
+<p><a class="reference external" href="https://www.linkedin.com/in/vitor-kamada-1b73a078">Vitor Kamada</a></p>
 <p>econometrics.methods&#64;gmail.com</p>
-<p>Last updated 7-18-2020</p>
+<p>Last updated: 9-16-2020</p>
 <div class="section" id="what-is-a-random-variable">
 <h2>2.1) What is a random variable?<a class="headerlink" href="#what-is-a-random-variable" title="Permalink to this headline">¶</a></h2>
 <p>It is a statistical model that describes uncertain outcome of a random process.</p>
@@ -547,13 +570,16 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">varX</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;[(x-mu)^2]*P(X=x)&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Round 2 decimals</span>
+<span class="o">%</span><span class="n">precision</span> <span class="mi">2</span>
+
+<span class="n">varX</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;[(x-mu)^2]*P(X=x)&#39;</span><span class="p">])</span>
 <span class="n">varX</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>44.760000000000005
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>44.76
 </pre></div>
 </div>
 </div>
@@ -576,7 +602,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6.690291473471093
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6.69
 </pre></div>
 </div>
 </div>
@@ -588,14 +614,15 @@
 </div>
 <div class="section" id="prove-that-e-cx-ce-x-where-c-is-a-constant">
 <h2>2.5) Prove that <span class="math notranslate nohighlight">\(E(cX) = cE(X)\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-e-cx-ce-x-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
+<p>In the previous examples, I was using the index <span class="math notranslate nohighlight">\(i\)</span> starting from 0. Let’s start counting from 1 but remember that Python starts counting from 0.</p>
 <p>By definition:</p>
 <div class="math notranslate nohighlight">
-\[ E(X) = x_0p_0+x_1p_1+...+x_np_n\]</div>
+\[ E(X) = x_1p_1+x_2p_2+...+x_np_n\]</div>
 <p>Then:</p>
 <div class="math notranslate nohighlight">
-\[ E(cX) = cx_0p_0+cx_1p_1+...+cx_np_n\]</div>
+\[ E(cX) = cx_1p_1+cx_2p_2+...+cx_np_n\]</div>
 <div class="math notranslate nohighlight">
-\[  c(x_0p_0+x_1p_1+...+x_np_n)\]</div>
+\[  c(x_1p_1+x_2p_2+...+x_np_n)\]</div>
 <div class="math notranslate nohighlight">
 \[ cE(X)\]</div>
 </div>
@@ -617,14 +644,14 @@
 <div class="section" id="prove-that-e-x-c-e-x-c-where-c-is-a-constant">
 <h2>2.7) Prove that <span class="math notranslate nohighlight">\(E(X+c)=E(X)+c\)</span>, where c is a constant.<a class="headerlink" href="#prove-that-e-x-c-e-x-c-where-c-is-a-constant" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
-\[ E(X+c) = (x_0+c)p_0+(x_1+c)p_1+...+(x_n+c)p_n\]</div>
+\[ E(X+c) = (x_1+c)p_1+(x_2+c)p_2+...+(x_n+c)p_n\]</div>
 <div class="math notranslate nohighlight">
-\[  x_0p_0+cp_0+x_1p_1+cp_1...+x_np_n+cp_n\]</div>
+\[  x_1p_1+cp_1+x_2p_2+cp_2+...+x_np_n+cp_n\]</div>
 <div class="math notranslate nohighlight">
-\[  (x_0p_0+x_1p_1+...+x_np_n) + c(p_0+p_1+...+p_n)\]</div>
+\[  (x_1p_1+x_2p_2+...+x_np_n) + c(p_1+p_2+...+p_n)\]</div>
 <p>As probability must sum up to 1:</p>
 <div class="math notranslate nohighlight">
-\[ \sum_{i=0}^{n}p_i=1 \]</div>
+\[ \sum_{i=1}^{n}p_i=1 \]</div>
 <p>Then:</p>
 <div class="math notranslate nohighlight">
 \[ E(X) + c\]</div>
@@ -632,12 +659,12 @@
 <div class="section" id="prove-that-e-c-c-where-c-is-constant">
 <h2>2.8) Prove that <span class="math notranslate nohighlight">\(E(c)=c\)</span>, where c is constant.<a class="headerlink" href="#prove-that-e-c-c-where-c-is-constant" title="Permalink to this headline">¶</a></h2>
 <p>By definition:
-<span class="math notranslate nohighlight">\($ E(X) = x_0p_0+x_1p_1+...+x_np_n\)</span>$</p>
+<span class="math notranslate nohighlight">\($ E(X) = x_1p_1+x_2p_2+...+x_np_n\)</span>$</p>
 <p>Then:</p>
 <div class="math notranslate nohighlight">
-\[ E(c) = cp_0+cp_1+...+cp_n\]</div>
+\[ E(c) = cp_1+cp_2+...+cp_n\]</div>
 <div class="math notranslate nohighlight">
-\[ c(p_0+p_1+...+p_n)\]</div>
+\[ c(p_1+p_2+...+p_n)\]</div>
 <div class="math notranslate nohighlight">
 \[c\]</div>
 </div>
@@ -657,9 +684,125 @@
 \[0\]</div>
 <p><strong>Intuition:</strong> By definition a constant has no variation.</p>
 </div>
+<div class="section" id="draw-the-distribution-or-probability-mass-function-pmf-of-a-random-variable-x-that-represents-one-roll-from-a-fair-six-sided-die">
+<h2>2.10) Draw the distribution or probability mass function (PMF) of a random variable <span class="math notranslate nohighlight">\(X\)</span>, that represents one roll from a fair six-sided die.<a class="headerlink" href="#draw-the-distribution-or-probability-mass-function-pmf-of-a-random-variable-x-that-represents-one-roll-from-a-fair-six-sided-die" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library to plot the chart</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Function to plot the chart</span>
+<span class="k">def</span> <span class="nf">plot_pmf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">rv_name</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$P(X = x)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability Mass Function of $X$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generate x-axis and y-axis</span>
+<span class="n">xk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">pk</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plot_pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+           <span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{1}{6}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{2}{6}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{3}{6}</span><span class="s1">$&#39;</span><span class="p">,</span>
+            <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{4}{6}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{5}{6}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2)_Random_Variables_32_0.png" src="_images/2)_Random_Variables_32_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="show-that-var-x-e-x-2-e-x-2">
+<h2>2.11) Show that <span class="math notranslate nohighlight">\(Var(X)=E(X^2) -[E(X)]^2\)</span>.<a class="headerlink" href="#show-that-var-x-e-x-2-e-x-2" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[Var(X)=E[X-E(X)]^2\]</div>
+<div class="math notranslate nohighlight">
+\[=E\{X^2 -2XE(X)+[E(X)]^2\}\]</div>
+<div class="math notranslate nohighlight">
+\[=E(X^2) -2E(X)E(X)+[E(X)]^2\]</div>
+<div class="math notranslate nohighlight">
+\[=E(X^2) -[E(X)]^2\]</div>
+</div>
+<div class="section" id="what-is-the-bernoulli-random-variable">
+<h2>2.12) What is the Bernoulli random variable?<a class="headerlink" href="#what-is-the-bernoulli-random-variable" title="Permalink to this headline">¶</a></h2>
+<p>It is binary random variable, that can take only two values:
+1 and 0. For example, we can simulate a biased coin with <span class="math notranslate nohighlight">\(P(Tail) = p\)</span>. Let <span class="math notranslate nohighlight">\(X = 1\)</span> if the coin flip is tail, and <span class="math notranslate nohighlight">\(X = 0\)</span> if the coin flip is head.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Outcome</p></th>
+<th class="head"><p>x</p></th>
+<th class="head"><p>P(X=x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tail</p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Head</p></td>
+<td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(1-p\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>The expected value of <span class="math notranslate nohighlight">\(X\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[E[X] = 1 \times p + 0 \times (1 - p) = p\]</div>
+<p>The variance of <span class="math notranslate nohighlight">\(X\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[Var(X) = E[X^2] - E[X]^2\]</div>
+<div class="math notranslate nohighlight">
+\[= [1^2 \times p + 0^2 \times (1 - p)] - p^2\]</div>
+<div class="math notranslate nohighlight">
+\[= p - p^2\]</div>
+<div class="math notranslate nohighlight">
+\[= p(1 - p)\]</div>
+<p>The standard deviation of <span class="math notranslate nohighlight">\(X\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[SD(X) = \sqrt{Var(X)}\]</div>
+<div class="math notranslate nohighlight">
+\[= \sqrt{p(1 - p)}\]</div>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>1| Calculate the E(Y).</p>
+<p>1| Let the random variable <span class="math notranslate nohighlight">\(X\)</span> be the number of heads in three tosses.</p>
+<p>The outcome space is:</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \{ HHH, HHT, HTH, THH, HTT, THT, TTH, TTT \}\]</div>
+<p>The probability distribution of <span class="math notranslate nohighlight">\(X\)</span> is:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p><span class="math notranslate nohighlight">\(\text{Possible value of } x\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(~~0~~\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(~~1~~\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(~~2~~\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(~~3~~\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><span class="math notranslate nohighlight">\(P(X = x)\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(1/8\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(3/8\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(3/8\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(1/8\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>a) What is the chance of getting more than one head, <span class="math notranslate nohighlight">\(P(X&gt;1)\)</span>?</p>
+<p>b) What is the chance of getting two or less than two heads, <span class="math notranslate nohighlight">\(P(X \leq 2)\)</span>?</p>
+<p>2| Let <span class="math notranslate nohighlight">\(Y\)</span> be a random variable that represents a stock.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Increases&#39;</span><span class="p">,</span> <span class="s1">&#39;Stays same&#39;</span><span class="p">,</span><span class="s1">&#39;Decreases&#39;</span><span class="p">]</span>
@@ -719,15 +862,19 @@
 </table>
 </div></div></div>
 </div>
-<p>2| Calculate Var(Y).</p>
-<p>3| Calculate the SD(Y).</p>
+<p>a) Calculate the <span class="math notranslate nohighlight">\(E(Y)\)</span>.</p>
+<p>b) Calculate <span class="math notranslate nohighlight">\(Var(Y)\)</span>.</p>
+<p>c) Calculate the <span class="math notranslate nohighlight">\(SD(Y)\)</span>.</p>
+<p>3| Let <span class="math notranslate nohighlight">\(D\)</span> be a random variable that represents the roll of a single fair six-sided die.</p>
+<p>a) Calculate the expected value of <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>b) Calculate the standard deviation of <span class="math notranslate nohighlight">\(D\)</span>.</p>
 <p>4| Prove that <span class="math notranslate nohighlight">\(Var(X+c)=Var(X)\)</span>, where c is a constant.</p>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
-<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
-<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+<p>Adhikari, A., Pitman, J. (2020). <a class="reference external" href="http://prob140.org/textbook/README.html">Probability for Data Science</a>.</p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Introductory Statistics with Randomization and Simulation</a>.</p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). <a class="reference external" href="https://www.textbook.ds100.org/intro">Principles and Techniques of Data Science</a>.</p>
 </div>
 </div>
 

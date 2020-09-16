@@ -258,6 +258,36 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-means-hat-p-is-an-unbiased-estimator-of-p">
+   5.9) What means
+   <span class="math notranslate nohighlight">
+    \(\hat{p}\)
+   </span>
+   is an unbiased estimator of
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-variance-of-hat-p">
+   5.10) What is the variance of
+   <span class="math notranslate nohighlight">
+    \(\hat{p}\)
+   </span>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-standard-error-of-hat-p">
+   5.11) What is the standard error of
+   <span class="math notranslate nohighlight">
+    \(\hat{p}?\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -279,9 +309,9 @@
                 
   <div class="section" id="samples-and-sampling-variation">
 <h1>5) Samples and Sampling Variation<a class="headerlink" href="#samples-and-sampling-variation" title="Permalink to this headline">¶</a></h1>
-<p>Vitor Kamada</p>
+<p><a class="reference external" href="https://www.linkedin.com/in/vitor-kamada-1b73a078">Vitor Kamada</a></p>
 <p>econometrics.methods&#64;gmail.com</p>
-<p>Last updated 7-20-2020</p>
+<p>Last updated: 9-16-2020</p>
 <div class="section" id="what-is-the-difference-between-population-and-sample">
 <h2>5.1) What is the difference between population and sample?<a class="headerlink" href="#what-is-the-difference-between-population-and-sample" title="Permalink to this headline">¶</a></h2>
 <p>Population is the entire collection of interest; whereas sample is a subset of the population.</p>
@@ -807,6 +837,47 @@ if (outputEl) {{
 <div class="math notranslate nohighlight">
 \[  = {\frac{\sigma}{\sqrt{n}}}\]</div>
 </div>
+<div class="section" id="what-means-hat-p-is-an-unbiased-estimator-of-p">
+<h2>5.9) What means <span class="math notranslate nohighlight">\(\hat{p}\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(p\)</span>?<a class="headerlink" href="#what-means-hat-p-is-an-unbiased-estimator-of-p" title="Permalink to this headline">¶</a></h2>
+<p>It means that the estimator <span class="math notranslate nohighlight">\(\hat{p}\)</span> converges to the true value of <span class="math notranslate nohighlight">\(p\)</span>, the parameter of the population:</p>
+<div class="math notranslate nohighlight">
+\[E[\hat p] = p\]</div>
+<p>Let <span class="math notranslate nohighlight">\(X_i\)</span> be a Bernoulli random variable for the <span class="math notranslate nohighlight">\(i^{th}\)</span> coin toss. Let’s toss the coin <span class="math notranslate nohighlight">\(n\)</span> times. The tosses are independent events. Let’s collect a sample of tosses and calculate the proportion of tails in the sample:</p>
+<div class="math notranslate nohighlight">
+\[\hat{p} = \frac{X_1 + X_2 + \ldots + X_n}{n}\]</div>
+<p>The expected value of <span class="math notranslate nohighlight">\(\hat{p}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[E[\hat p] = E \left[ \frac{X_1 + X_2 + \ldots + X_n}{n} \right] \]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n} E[X_1 + \ldots + X_n]\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n} ( E[X_1] +  \ldots + E[X_n] )\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n} (p + \ldots + p)\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n} (np)\]</div>
+<div class="math notranslate nohighlight">
+\[ = p\]</div>
+<p>Therefore, with enough tosses (<span class="math notranslate nohighlight">\(n\)</span>), the estimator <span class="math notranslate nohighlight">\(\hat{p}\)</span> converges to the true value of <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<div class="section" id="what-is-the-variance-of-hat-p">
+<h2>5.10) What is the variance of <span class="math notranslate nohighlight">\(\hat{p}\)</span>?<a class="headerlink" href="#what-is-the-variance-of-hat-p" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[Var(\hat{p}) = Var \left(\frac{1}{n} \sum_{i=1}^{n} X_i \right)\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n^2} \sum_{i=1}^{n}Var(X_i)\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{1}{n^2} \times np(1-p)\]</div>
+<div class="math notranslate nohighlight">
+\[= \frac{p(1-p)}{n}\]</div>
+</div>
+<div class="section" id="what-is-the-standard-error-of-hat-p">
+<h2>5.11) What is the standard error of <span class="math notranslate nohighlight">\(\hat{p}?\)</span><a class="headerlink" href="#what-is-the-standard-error-of-hat-p" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[SE(\hat{p})=\sqrt{Var(\hat{p})}\]</div>
+<div class="math notranslate nohighlight">
+\[=\sqrt{\frac{p(1-p)}{n}}\]</div>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>1| The population of Sweden in 2019 is about 10 million, and the population of China is about 1.4 billion. I want to estimate the average income of these two countries. Do the random samples of the Chinese population need to be larger than random samples of the Swedish population? Justify.</p>
@@ -815,14 +886,14 @@ if (outputEl) {{
 <p>b) Every member of the population is equally likely to be in a simple random sample.</p>
 <p>c| The customer reviews that you read at Amazon.com is likely to be representative of the population.</p>
 <p>3| Do you agree with the statement: “Certain studies that test therapies/drugs looked too good because the subjects were never those who had severe cases”. Justify.</p>
-<p>4| Let <span class="math notranslate nohighlight">\(\bar{X}\)</span> be the mean of <span class="math notranslate nohighlight">\(n\)</span> iid random variables (<span class="math notranslate nohighlight">\(X_1, X_2,...,X_{n}\)</span>). Show that <span class="math notranslate nohighlight">\(E(\bar{X})=\mu\)</span></p>
+<p>4| Let <span class="math notranslate nohighlight">\(\bar{X}\)</span> be the mean of <span class="math notranslate nohighlight">\(n\)</span> iid random variables (<span class="math notranslate nohighlight">\(X_1, X_2,...,X_{n}\)</span>). Show that <span class="math notranslate nohighlight">\(E(\bar{X})=\mu\)</span>.</p>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<p>Adhikari, A., DeNero, J. (2020). Computational and Inferential Thinking: The Foundations of Data Science. <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Link</a></p>
-<p>Adhikari, A., Pitman, J. (2020). Probability for Data Science. <a class="reference external" href="http://prob140.org/textbook/README.html">Link</a></p>
-<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
-<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+<p>Adhikari, A., DeNero, J. (2020). <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Computational and Inferential Thinking: The Foundations of Data Science</a>.</p>
+<p>Adhikari, A., Pitman, J. (2020). <a class="reference external" href="http://prob140.org/textbook/README.html">Probability for Data Science</a>.</p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Introductory Statistics with Randomization and Simulation</a>.</p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). <a class="reference external" href="https://www.textbook.ds100.org/intro">Principles and Techniques of Data Science</a>.</p>
 </div>
 </div>
 

@@ -239,18 +239,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-if-the-proportion-of-college-degree-is-the-same-for-whites-and-blacks">
+   8.6) Test if the proportion of college degree is the same for Whites and Blacks.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-the-randomization-of-the-treatment-variable-makes-control-group-and-treatment-group-similar">
-   8.6) Why the randomization of the treatment variable makes control group and treatment group similar?
+   8.7) Why the randomization of the treatment variable makes control group and treatment group similar?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#when-the-difference-in-group-means-is-biased-and-not-capture-the-average-causal-effect">
-   8.7) When the difference in group means is biased and not capture the average causal effect?
+   8.8) When the difference in group means is biased and not capture the average causal effect?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#does-association-imply-causation">
-   8.8) Does association imply causation?
+   8.9) Does association imply causation?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -275,9 +280,9 @@
                 
   <div class="section" id="experiment">
 <h1>8) Experiment<a class="headerlink" href="#experiment" title="Permalink to this headline">¶</a></h1>
-<p>Vitor Kamada</p>
+<p><a class="reference external" href="https://www.linkedin.com/in/vitor-kamada-1b73a078">Vitor Kamada</a></p>
 <p>econometrics.methods&#64;gmail.com</p>
-<p>Last updated 8-2-2020</p>
+<p>Last updated 9-15-2020</p>
 <div class="section" id="what-is-an-experiment">
 <h2>8.1) What is an experiment?<a class="headerlink" href="#what-is-an-experiment" title="Permalink to this headline">¶</a></h2>
 <p>Experiment is a method that uses randomization to produce data that reveal causation.</p>
@@ -637,7 +642,10 @@
 <p>race: w = White, and b = Black.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Round 4 decimals</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">callback</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="s1">&#39;call&#39;</span><span class="p">,</span> <span class="s1">&#39;race&#39;</span><span class="p">)]</span>
 <span class="n">callback</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
 </pre></div>
@@ -683,12 +691,12 @@
     <tr>
       <th>b</th>
       <td>2435.0</td>
-      <td>0.064476</td>
+      <td>0.0645</td>
     </tr>
     <tr>
       <th>w</th>
       <td>2435.0</td>
-      <td>0.096509</td>
+      <td>0.0965</td>
     </tr>
   </tbody>
 </table>
@@ -756,12 +764,12 @@
     <tr>
       <th>b</th>
       <td>2435</td>
-      <td>0.722793</td>
+      <td>0.7228</td>
     </tr>
     <tr>
       <th>w</th>
       <td>2435</td>
-      <td>0.716222</td>
+      <td>0.7162</td>
     </tr>
   </tbody>
 </table>
@@ -919,84 +927,84 @@
   <tbody>
     <tr>
       <th>college</th>
-      <td>0.719507</td>
-      <td>0.449286</td>
-      <td>0.722793</td>
-      <td>0.447712</td>
-      <td>0.716222</td>
-      <td>0.450923</td>
+      <td>0.7195</td>
+      <td>0.4493</td>
+      <td>0.7228</td>
+      <td>0.4477</td>
+      <td>0.7162</td>
+      <td>0.4509</td>
     </tr>
     <tr>
       <th>yearsexp</th>
-      <td>7.842916</td>
-      <td>5.044612</td>
-      <td>7.829569</td>
-      <td>5.010764</td>
-      <td>7.856263</td>
-      <td>5.079228</td>
+      <td>7.8429</td>
+      <td>5.0446</td>
+      <td>7.8296</td>
+      <td>5.0108</td>
+      <td>7.8563</td>
+      <td>5.0792</td>
     </tr>
     <tr>
       <th>volunteer</th>
-      <td>0.411499</td>
-      <td>0.492156</td>
-      <td>0.414374</td>
-      <td>0.492715</td>
-      <td>0.408624</td>
-      <td>0.491681</td>
+      <td>0.4115</td>
+      <td>0.4922</td>
+      <td>0.4144</td>
+      <td>0.4927</td>
+      <td>0.4086</td>
+      <td>0.4917</td>
     </tr>
     <tr>
       <th>military</th>
-      <td>0.097125</td>
-      <td>0.296159</td>
-      <td>0.101848</td>
-      <td>0.302511</td>
-      <td>0.092402</td>
-      <td>0.289653</td>
+      <td>0.0971</td>
+      <td>0.2962</td>
+      <td>0.1018</td>
+      <td>0.3025</td>
+      <td>0.0924</td>
+      <td>0.2897</td>
     </tr>
     <tr>
       <th>email</th>
-      <td>0.479261</td>
-      <td>0.499621</td>
-      <td>0.479671</td>
-      <td>0.499689</td>
-      <td>0.478850</td>
-      <td>0.499655</td>
+      <td>0.4793</td>
+      <td>0.4996</td>
+      <td>0.4797</td>
+      <td>0.4997</td>
+      <td>0.4789</td>
+      <td>0.4997</td>
     </tr>
     <tr>
       <th>workinschool</th>
-      <td>0.559548</td>
-      <td>0.496492</td>
-      <td>0.560986</td>
-      <td>0.496369</td>
-      <td>0.558111</td>
-      <td>0.496714</td>
+      <td>0.5595</td>
+      <td>0.4965</td>
+      <td>0.5610</td>
+      <td>0.4964</td>
+      <td>0.5581</td>
+      <td>0.4967</td>
     </tr>
     <tr>
       <th>honors</th>
-      <td>0.052772</td>
-      <td>0.223601</td>
-      <td>0.051335</td>
-      <td>0.220725</td>
-      <td>0.054209</td>
-      <td>0.226477</td>
+      <td>0.0528</td>
+      <td>0.2236</td>
+      <td>0.0513</td>
+      <td>0.2207</td>
+      <td>0.0542</td>
+      <td>0.2265</td>
     </tr>
     <tr>
       <th>computerskills</th>
-      <td>0.820534</td>
-      <td>0.383782</td>
-      <td>0.832444</td>
-      <td>0.373549</td>
-      <td>0.808624</td>
-      <td>0.393465</td>
+      <td>0.8205</td>
+      <td>0.3838</td>
+      <td>0.8324</td>
+      <td>0.3735</td>
+      <td>0.8086</td>
+      <td>0.3935</td>
     </tr>
     <tr>
       <th>specialskills</th>
-      <td>0.328747</td>
-      <td>0.469806</td>
-      <td>0.327310</td>
-      <td>0.469328</td>
-      <td>0.330185</td>
-      <td>0.470376</td>
+      <td>0.3287</td>
+      <td>0.4698</td>
+      <td>0.3273</td>
+      <td>0.4693</td>
+      <td>0.3302</td>
+      <td>0.4704</td>
     </tr>
   </tbody>
 </table>
@@ -1005,15 +1013,15 @@
 </div>
 <div class="section" id="test-if-whites-and-blacks-have-the-same-average-years-of-experience">
 <h2>8.5) Test if Whites and Blacks have the same average years of experience.<a class="headerlink" href="#test-if-whites-and-blacks-have-the-same-average-years-of-experience" title="Permalink to this headline">¶</a></h2>
-<p>The average years of experience for Whites is
-7.82, while for Blacks is 7.85. We can see that they are pretty much the same, but let’s be formal and carry out a statistical test:</p>
+<p>The average years of experience for Whites is 7.82, while for Blacks is 7.85. We can see that they are pretty much the same, but let’s be formal and carry out a statistical test:</p>
 <div class="math notranslate nohighlight">
-\[  H_0: \mu_w= \mu_b \]</div>
+\[H_0: \mu_w= \mu_b \]</div>
+<p>The t-statistic is:</p>
 <div class="math notranslate nohighlight">
-\[  t =  \frac{\bar{x}_w - \bar{x}_b}{s_p \sqrt{\frac{1}{n_w} + \frac{1}{n_b} }}   \]</div>
+\[t =  \frac{\bar{x}_w - \bar{x}_b}{s_p \sqrt{\frac{1}{n_w} + \frac{1}{n_b} }}\]</div>
 <p>where the pool standard deviation (<span class="math notranslate nohighlight">\(s_p\)</span>) is:</p>
 <div class="math notranslate nohighlight">
-\[ \sqrt{\frac{ \sum_{i=1}^{n_w}(x_{wi} - \bar{x} _w)^2  +  \sum_{i=1}^{n_b}(x_{bi} - \bar{x} _b)^2 }{n_w + n_b -2}}  \]</div>
+\[\sqrt{\frac{ \sum_{i=1}^{n_w}(x_{wi} - \bar{x} _w)^2 +\sum_{i=1}^{n_b}(x_{bi} - \bar{x} _b)^2 }{n_w + n_b -2}}\]</div>
 <p>The t-statistic is 0.18 and respective p-value is 0.85. Therefore, we cannot reject the <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1032,8 +1040,52 @@
 </div>
 </div>
 </div>
+<div class="section" id="test-if-the-proportion-of-college-degree-is-the-same-for-whites-and-blacks">
+<h2>8.6) Test if the proportion of college degree is the same for Whites and Blacks.<a class="headerlink" href="#test-if-the-proportion-of-college-degree-is-the-same-for-whites-and-blacks" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(p_{w}\)</span> be the proportion of Whites with a college degree, and <span class="math notranslate nohighlight">\(p_{b}\)</span> the proportion of Blacks with a college degree.</p>
+<p>The null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>) is:</p>
+<div class="math notranslate nohighlight">
+\[H_0: p_{w} = p_{b}\]</div>
+<p>The z-statistic is:</p>
+<div class="math notranslate nohighlight">
+\[z=\frac{\hat{p}_{w}-\hat{p}_{b}}{se(\hat{p}_{w}-\hat{p}_{b})}\]</div>
+<p>where <span class="math notranslate nohighlight">\(se(\hat{p}_{w}-\hat{p}_{b})\)</span> is the standard error of the difference between the sample proportions:</p>
+<div class="math notranslate nohighlight">
+\[se(\hat{p}_{w}-\hat{p}_{b})=\sqrt{\frac{\hat{p}_{w}(1-\hat{p}_{w})}{n_w}+\frac{\hat{p}_{b}(1-\hat{p}_{b})}{n_b}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_w\)</span> is the sample size of Whites and <span class="math notranslate nohighlight">\(n_b\)</span> is the sample size of Blacks.</p>
+<p>The estimated proportions are:</p>
+<div class="math notranslate nohighlight">
+\[\hat{p}_{w}=0.716\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{p}_{b}=0.723\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[z=-0.51\]</div>
+<p>The p-value of the z-statistic is 0.61.
+Therefore, we cannot reject the null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>) at any reasonable level of significance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportions_ztest</span>
+
+<span class="c1"># number of college degree</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="nb">sum</span><span class="p">(</span><span class="n">white</span><span class="p">[</span><span class="s1">&#39;college&#39;</span><span class="p">]),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">black</span><span class="p">[</span><span class="s1">&#39;college&#39;</span><span class="p">])</span> <span class="p">])</span>
+
+<span class="c1"># sample size </span>
+<span class="n">nobs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="nb">len</span><span class="p">(</span><span class="n">white</span><span class="p">[</span><span class="s1">&#39;college&#39;</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">black</span><span class="p">[</span><span class="s1">&#39;college&#39;</span><span class="p">])</span> <span class="p">])</span>
+
+<span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(-0.510360512459463, 0.6097989158445807)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="why-the-randomization-of-the-treatment-variable-makes-control-group-and-treatment-group-similar">
-<h2>8.6) Why the randomization of the treatment variable makes control group and treatment group similar?<a class="headerlink" href="#why-the-randomization-of-the-treatment-variable-makes-control-group-and-treatment-group-similar" title="Permalink to this headline">¶</a></h2>
+<h2>8.7) Why the randomization of the treatment variable makes control group and treatment group similar?<a class="headerlink" href="#why-the-randomization-of-the-treatment-variable-makes-control-group-and-treatment-group-similar" title="Permalink to this headline">¶</a></h2>
 <p>The answer is the Law of Large Numbers (LLN).</p>
 <p>A sample average can be brought as close as the
 average in the population from which it is drawn
@@ -1044,7 +1096,7 @@ similar, because both groups come from the same
 population.</p>
 </div>
 <div class="section" id="when-the-difference-in-group-means-is-biased-and-not-capture-the-average-causal-effect">
-<h2>8.7) When the difference in group means is biased and not capture the average causal effect?<a class="headerlink" href="#when-the-difference-in-group-means-is-biased-and-not-capture-the-average-causal-effect" title="Permalink to this headline">¶</a></h2>
+<h2>8.8) When the difference in group means is biased and not capture the average causal effect?<a class="headerlink" href="#when-the-difference-in-group-means-is-biased-and-not-capture-the-average-causal-effect" title="Permalink to this headline">¶</a></h2>
 <p>Unless the treatment variable (T) is randomized, the difference in group means will be upward or downward biased.</p>
 <p>Let’s assume that for a person <span class="math notranslate nohighlight">\(i\)</span> the treatment outcome (<span class="math notranslate nohighlight">\(Y_{ti}\)</span>) is equal to the control outcome (<span class="math notranslate nohighlight">\(Y_{ci}\)</span>) plus the causal effect (<span class="math notranslate nohighlight">\(\alpha\)</span>).</p>
 <div class="math notranslate nohighlight">
@@ -1069,7 +1121,7 @@ population.</p>
 \[ = 0 \]</div>
 </div>
 <div class="section" id="does-association-imply-causation">
-<h2>8.8) Does association imply causation?<a class="headerlink" href="#does-association-imply-causation" title="Permalink to this headline">¶</a></h2>
+<h2>8.9) Does association imply causation?<a class="headerlink" href="#does-association-imply-causation" title="Permalink to this headline">¶</a></h2>
 <p>No. Causation can only be
 inferred from a randomized experiment. Consumption of ice cream is positive correlated with skin cancer, but consumption of ice cream is not a major factor to cause skin cancer. It looks that sun light increases both the consumption of ice cream and the incidence of skin cancer.</p>
 </div>
@@ -1118,13 +1170,13 @@ inferred from a randomized experiment. Consumption of ice cream is positive corr
   <tbody>
     <tr>
       <th>b</th>
-      <td>0.061881</td>
-      <td>0.067048</td>
+      <td>0.0619</td>
+      <td>0.0670</td>
     </tr>
     <tr>
       <th>w</th>
-      <td>0.084983</td>
-      <td>0.107931</td>
+      <td>0.0850</td>
+      <td>0.1079</td>
     </tr>
   </tbody>
 </table>
@@ -1133,14 +1185,16 @@ inferred from a randomized experiment. Consumption of ice cream is positive corr
 <p>3| A student is worried about the time she spends in traffic getting to the university. She times the drive for a couple of weeks and finds that it averages 30 minutes.</p>
 <p>a) The next day, she tries public transit and it takes 35 minutes. The next day, she’s back on the roads, convinced that driving is quicker. Does her decision make sense?</p>
 <p>b) If the student decides to do more testing, how should she decide on the mode of transportation? Should she, for example, drive for a week and then take public transit for a week? What advice would you offer?</p>
-<p>4| Give me 3 examples of spurious correlation that people might think that is a case of causation. Cite the source.</p>
+<p>4| Give 3 examples of spurious correlation that people might think that is a case of causation. Cite the reference/source of your examples.</p>
+<p>5| Use the data from Bertrand &amp; Sendhil Mullainathan (2004) to test if Whites and Blacks have the same probability of having an e-mail in the resume. Write the null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>). Interpret the result.</p>
+<p>6| Use the data from Bertrand &amp; Sendhil Mullainathan (2004) to test if Whites and Blacks have the same computer skills. Write the null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>). Interpret the result.</p>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<p>Adhikari, A., DeNero, J. (2020). Computational and Inferential Thinking: The Foundations of Data Science. <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Link</a></p>
+<p>Adhikari, A., DeNero, J. (2020). <a class="reference external" href="https://www.inferentialthinking.com/chapters/intro.html">Computational and Inferential Thinking: The Foundations of Data Science</a></p>
 <p>Bertrand, Marianne, and Sendhil Mullainathan. (2004). Are Emily and Greg More Employable Than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination. American Economic Review, 94 (4): 991-1013.</p>
-<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). Introductory Statistics with Randomization and Simulation. <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Link</a></p>
-<p>Lau, S., Gonzalez, J., Nolan, D. (2020). Principles and Techniques of Data Science.  <a class="reference external" href="https://www.textbook.ds100.org/intro">Link</a></p>
+<p>Diez, D. M., Barr, C. D., Çetinkaya-Rundel, M. (2014). <a class="reference external" href="https://www.openintro.org/stat/textbook.php?stat_book=isrs">Introductory Statistics with Randomization and Simulation</a>.</p>
+<p>Lau, S., Gonzalez, J., Nolan, D. (2020). <a class="reference external" href="https://www.textbook.ds100.org/intro">Principles and Techniques of Data Science</a>.</p>
 </div>
 </div>
 
